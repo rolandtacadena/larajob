@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateJobsFormRequest;
 use App\Job;
-use Illuminate\Http\Request;
 
 class JobsController extends Controller
 {
@@ -35,9 +35,22 @@ class JobsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateJobsFormRequest $request)
     {
-        //
+        $job = Job::create([
+            'user_id'       => auth()->id(),
+            'type_id'       => $request->type,
+            'title'         => $request->title,
+            'description'   => $request->description,
+            'how_to_apply'  => $request->how_to_apply,
+            'location'      => $request->location
+        ]);
+
+        $job->categories()->attach(
+            array_values($request->categories)
+        );
+
+        return redirect()->route('index');
     }
 
     /**

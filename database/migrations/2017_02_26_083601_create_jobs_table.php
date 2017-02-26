@@ -22,11 +22,6 @@ class CreateJobsTable extends Migration
                 ->on('users')
                 ->onDelete('cascade');
 
-            $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')
-                ->references('id')
-                ->on('categories');
-
             $table->integer('type_id')->unsigned();
             $table->foreign('type_id')
                 ->references('id')

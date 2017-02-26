@@ -11,6 +11,9 @@
             <p>You'll be able to edit your job at any time after you post. Questions? Contact us.</p>
 
             <form method="POST" action="{{ route('store-job') }}">
+
+                {{ csrf_field() }}
+
                 <fieldset class="fieldset">
                     <legend>Job Description</legend>
                     <div class="row">
@@ -35,8 +38,8 @@
 
                                 <!-- Listing all categories -->
                                 @foreach( $categories as $category_id => $category_name )
-                                    <input id="{{ $category_id }}" type="checkbox" name="categories[]" value="{{ $category_id }}" required>
-                                    <label for="{{ $category_id }}">{{ $category_name }}</label>
+                                    <input id="cat{{ $category_id }}" type="checkbox" name="categories[]" value="{{ $category_id }}">
+                                    <label for="cat{{ $category_id }}">{{ $category_name }}</label>
                                 @endforeach
 
                             </fieldset>
@@ -47,25 +50,21 @@
                 <fieldset class="fieldset">
                     <legend>Job Type</legend>
                     <div class="row">
-
                         <!-- Listing all job types -->
                         @foreach( $types as $type_id => $type_name )
                             <div class="small-12 columns">
-                                <input id="{{ $type_id }}" type="radio" name="pokemon" value="{{ $type_id }}" required>
-                                <label for="{{ $type_id }}">{{ ucwords($type_name) }}</label>
+                                <input id="type{{ $type_id }}" type="radio" name="type" value="{{ $type_id }}">
+                                <label for="type{{ $type_id }}">{{ ucwords($type_name) }}</label>
                             </div>
                         @endforeach
-
                     </div>
                 </fieldset>
-
                 <fieldset class="fieldset">
                     <legend>Job Location</legend>
                     <div class="row">
                         <input type="text" name="location" value="" placeholder="location" required>
                     </div>
                 </fieldset>
-
                 <div class="row">
                     <div class="small-12 columns">
                         <button type="submit" class="button">Post Job</button>

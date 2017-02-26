@@ -17,10 +17,10 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('company_name');
-            $table->string('company_tagline');
-            $table->string('company_web_url');
-            $table->string('company_logo');
+            $table->string('company_name')->nullable();
+            $table->string('company_tagline')->nullable();;
+            $table->string('company_web_url')->nullable();;
+            $table->string('company_logo')->nullable();;
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
