@@ -18,7 +18,21 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
+        'company_name' => $faker->name,
+        'company_tagline' => $faker->sentence(5),
+        'company_web_url' => $faker->url,
+        'company_logo' => $faker->name,
         'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10),
+        'remember_token' => str_random(10)
+    ];
+});
+
+$factory->define(App\Job::class, function (Faker\Generator $faker) {
+    return [
+        'user_id' => $faker->numberBetween(1, 30),
+        'title' => $faker->name,
+        'description' => $faker->sentence,
+        'location' => $faker->sentence,
+        'how_to_apply' => 'Email github, projects or resume to tacadena.roland@gmail.com'
     ];
 });

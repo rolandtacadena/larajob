@@ -1,0 +1,113 @@
+body {
+	font-family: 'Lato', sans-serif;
+	font-weight: normal;
+	color: #333;
+}
+
+a {
+	color: #ef5f5a;
+}
+
+a:active, a:hover {
+    color: #e22620;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    color: inherit;
+    text-rendering: optimizeLegibility;
+    margin-top: 0;
+    margin-bottom: .5rem;
+    line-height: 1.4;
+}
+
+h1 {
+    font-size: 1.5rem
+}
+h2 {
+    font-size: 1.25rem
+}
+h3 {
+    font-size: 1.1875rem
+}
+h4 {
+    font-size: 1.125rem
+}
+h5 {
+    font-size: 1.0625rem
+}
+h6 {
+    font-size: 1rem
+}
+@media screen and (min-width: 43.75em) {
+    h1 {
+        font-size: 3rem
+    }
+    h2 {
+        font-size: 2.5rem
+    }
+    h3 {
+        font-size: 1.9375rem
+    }
+    h4 {
+        font-size: 1.5625rem
+    }
+    h5 {
+        font-size: 1.25rem
+    }
+    h6 {
+        font-size: 1rem
+    }
+}
+
+.top-bar, .top-bar ul, .title-bar {
+    background-color: #2c3840;
+    color: #fff;
+}
+
+.top-bar {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.menu > li > a {
+	color: #fff;
+	font-weight: 500;
+    padding: 1em;
+    line-height: 2em;
+}
+
+.menu > li > a:hover {
+    background: #41525e;
+    color: #fff;
+    text-decoration: none;
+}
+
+.off-canvas-content, .off-canvas-content { box-shadow: none; }
+
+.off-canvas {
+    background: #e74b47;
+    height: 100%;
+}
+
+.off-canvas ul li a { font-weight: bold; }
+
+.title-bar-title a { color: #fff; }
+
+/*page-content*/
+.page-content {
+    margin: 1.875rem 0; }
+
+@media screen and (min-width: 43.75em) {
+    .page-content {
+        margin: 4rem 0; }
+}
+/*!page-content*/
+#SiteFooter {
+	padding: .5em 0;
+	font-size: .8em;
+}
+
+#SiteFooter p { margin: 0; }
