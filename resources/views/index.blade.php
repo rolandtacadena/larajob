@@ -11,7 +11,8 @@
 
 			<div class="jobs-list">
 
-				
+				@each('partials.job-item', $jobs, 'job')
+
 			</div>
 		</div>
 
