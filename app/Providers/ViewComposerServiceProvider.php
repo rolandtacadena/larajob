@@ -16,8 +16,6 @@ class ViewComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('create', function ($view) {
-            //$view->with('categories', Category::pluck('id'));
-            //$view->with('type', Type::pluck('id'));
             $categories = Category::pluck('name', 'id');
             $types = Type::pluck('name', 'id');
             $view->with(compact('categories', 'types'));

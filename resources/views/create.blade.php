@@ -62,15 +62,6 @@
                 <fieldset class="fieldset">
                     <legend>Job Location</legend>
                     <div class="row">
-                        <!--<div class="small-12 columns">
-                            <input type="radio" name="pokemon" value="Red" id="pokemonRed" required><label for="pokemonRed"> This position is traditional OR remote is an option </label>
-                        </div>
-                        <div class="small-12 columns">
-                            <input type="radio" name="pokemon" value="Red" id="pokemonRed" required><label for="pokemonRed">This is a Remote (global) position</label>
-                        </div>
-                        <div class="small-12 columns">
-                            <input type="radio" name="pokemon" value="Red" id="pokemonRed" required><label for="pokemonRed">This is a Remote (USA) position</label>
-                        </div>-->
                         <input type="text" name="location" value="" placeholder="location" required>
                     </div>
                 </fieldset>
