@@ -14,3 +14,5 @@
 Auth::routes();
 
 Route::get('/', 'JobsController@index')->name('index');
+
+Route::get('jobs/{job}', 'JobsController@show')->name('show-job');

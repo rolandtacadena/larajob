@@ -5,9 +5,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LARAJOBSCO</title>
-    <link rel="stylesheet" href="css/foundation.css">
-    <link rel="stylesheet" href="css/app2.css">
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="{{ asset('css/foundation.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app2.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
     <!-- fonts -->
     <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet"> -->

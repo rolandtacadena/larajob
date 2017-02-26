@@ -1,4 +1,4 @@
-<a href="">
+<a href="{{ route('show-job', $job) }}">
     <div class="row job">
         <div class="company-logo-container float-left">
             <div class="company-logo">

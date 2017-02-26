@@ -9,10 +9,10 @@
             </div>
         </div>
     </div>
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/vendor/what-input.js"></script>
-    <script src="js/vendor/foundation.js"></script>
-    <script src="js/app2.js"></script>
+    <script src="{{ asset('js/vendor/jquery.js')  }}"></script>
+    <script src="{{ asset('js/vendor/what-input.js') }}"></script>
+    <script src="{{ asset('js/vendor/foundation.js') }}"></script>
+    <script src="{{ asset('js/app2.js') }}"></script>
 
 </body>
 </html>
