@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Job;
+use App\Type;
 use Illuminate\Http\Request;
 
-class JobsController extends Controller
+class TypesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,7 @@ class JobsController extends Controller
      */
     public function index()
     {
-        $jobs = Job::latest()->get();
-
-        return view('index', compact('jobs'));
+        //
     }
 
     /**
@@ -26,7 +24,7 @@ class JobsController extends Controller
      */
     public function create()
     {
-        return view('create');
+        //
     }
 
     /**
@@ -43,21 +41,21 @@ class JobsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Job  $job
+     * @param  \App\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function show(Job $job)
+    public function show(Type $type)
     {
-        return view('show-job', compact('job'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Job  $job
+     * @param  \App\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function edit(Job $job)
+    public function edit(Type $type)
     {
         //
     }
@@ -66,10 +64,10 @@ class JobsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Job  $job
+     * @param  \App\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Job $job)
+    public function update(Request $request, Type $type)
     {
         //
     }
@@ -77,10 +75,10 @@ class JobsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Job  $job
+     * @param  \App\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Job $job)
+    public function destroy(Type $type)
     {
         //
     }

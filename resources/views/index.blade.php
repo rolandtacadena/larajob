@@ -13,10 +13,13 @@
 				@each('partials.job-item', $jobs, 'job')
 
 			</div>
+
 		</div>
 
 		<div class="large-4 columns">
-			sqsqs
+
+			<a class="button expanded" href="#">So Basic</a>
+
 		</div>
 
 	</div>
