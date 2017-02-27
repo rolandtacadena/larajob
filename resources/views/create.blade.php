@@ -43,7 +43,9 @@
                                         type="checkbox"
                                         name="categories[]"
                                         value="{{ $category_id }}"
-                                        {{ in_array($category_id, old('categories')) ? ' checked' : '' }}
+                                        @if(!empty(old('categories')))
+                                            {{ in_array($category_id, old('categories')) ? ' checked' : '' }}
+                                        @endif
                                     >
                                     <label for="cat{{ $category_id }}">{{ $category_name }}</label>
                                 @endforeach
@@ -84,7 +86,7 @@
                 </div>
                 <div class="row">
                     <div class="small-12 columns">
-                        <button type="submit" class="button">Post Job</button>
+                        <button type="submit" class="button medium">Post Job</button>
                     </div>
                 </div>
             </form>
