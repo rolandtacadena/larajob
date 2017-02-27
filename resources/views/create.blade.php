@@ -19,17 +19,17 @@
                     <div class="row">
                         <div class="small-12 columns">
                             <label>* Title
-                                <input type="text" name="title" value="" placeholder="Title" required>
+                                <input type="text" name="title" value="{{ old('title') }}" placeholder="Title" required>
                             </label>
                         </div>
                         <div class="small-12 columns">
                             <label>* Description
-                                <textarea name="description" placeholder="Description" cols="30" rows="10" required></textarea>
+                                <textarea name="description" placeholder="Description" cols="30" rows="10" required>{{ old('description') }}</textarea>
                             </label>
                         </div>
                         <div class="small-12 columns">
                             <label>* How to apply
-                                <textarea name="how_to_apply" placeholder="How to apply" cols="30" rows="10" required></textarea>
+                                <textarea name="how_to_apply" placeholder="How to apply" cols="30" rows="10" required>{{ old('how_to_apply') }}</textarea>
                             </label>
                         </div>
                         <div class="small-12 columns">
@@ -62,7 +62,7 @@
                 <fieldset class="fieldset">
                     <legend>Job Location</legend>
                     <div class="row">
-                        <input type="text" name="location" value="" placeholder="location" required>
+                        <input type="text" name="location" value="{{ old('location') }}" placeholder="location" required>
                     </div>
                 </fieldset>
                 <div class="row">
@@ -75,7 +75,7 @@
 
         <div class="large-4 columns">
 
-            {{--@include('sidebar')--}}
+            @include('partials.sidebar2')
 
         </div>
 

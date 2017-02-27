@@ -15,6 +15,22 @@ class CreateJobsFormRequest extends FormRequest
     {
         return true;
     }
+    
+    public function persist()
+    {
+        $job = Job::create([
+            'user_id'       => auth()->id(),
+            'type_id'       => $this->type,
+            'title'         => $this->title,
+            'description'   => $this->description,
+            'how_to_apply'  => $this->how_to_apply,
+            'location'      => $this->location
+        ]);
+
+        $job->categories()->attach(
+            array_values($this->categories)
+        );
+    }
 
     /**
      * Get the validation rules that apply to the request.

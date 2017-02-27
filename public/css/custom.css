@@ -63,6 +63,9 @@ h6 { font-size: 1rem; }
 @media screen and (min-width: 43.75em) {
     .page-content { margin: 4rem 0; } }
 
+/*PAGES*/
+
+/*INDEX*/
 .job {
     padding-bottom: 1.5em; }
     .company-logo-container {
@@ -72,6 +75,15 @@ h6 { font-size: 1rem; }
         position: absolute; }
     .job-details {
         padding-left: 101px; }
+
+/*SHOW JOB*/
+.show-job {}
+    .show-job .company_name {
+    font-size: 1.5em;
+    font-weight: bold; }
+    .show-job .company_tagline {
+        font-style: italic;
+        color: #666; }
 
 #SiteFooter {
 	padding: .5em 0;

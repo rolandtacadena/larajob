@@ -37,18 +37,7 @@ class JobsController extends Controller
      */
     public function store(CreateJobsFormRequest $request)
     {
-        $job = Job::create([
-            'user_id'       => auth()->id(),
-            'type_id'       => $request->type,
-            'title'         => $request->title,
-            'description'   => $request->description,
-            'how_to_apply'  => $request->how_to_apply,
-            'location'      => $request->location
-        ]);
-
-        $job->categories()->attach(
-            array_values($request->categories)
-        );
+        $request->persist();
 
         return redirect()->route('index');
     }

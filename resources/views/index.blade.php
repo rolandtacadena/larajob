@@ -2,7 +2,7 @@
 
 @section('content')
 	
-	<div class="page-content">
+	<div class="page-content index">
 
 		<div class="large-8 columns">
 
@@ -18,7 +18,7 @@
 
 		<div class="large-4 columns">
 
-			<a class="button expanded" href="#">So Basic</a>
+			@include('partials.sidebar')
 
 		</div>
 
