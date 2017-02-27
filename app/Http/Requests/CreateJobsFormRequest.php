@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Job;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CreateJobsFormRequest extends FormRequest
@@ -15,7 +16,7 @@ class CreateJobsFormRequest extends FormRequest
     {
         return true;
     }
-    
+
     public function persist()
     {
         $job = Job::create([
@@ -42,7 +43,9 @@ class CreateJobsFormRequest extends FormRequest
         return [
             'title'         => 'required|max:255',
             'description'   => 'required',
-            'how_to_apply'  => 'required'
+            'how_to_apply'  => 'required',
+            'categories'    => 'required',
+            'type'          => 'required'
         ];
     }
 }
