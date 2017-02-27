@@ -4,13 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LARAJOBSCO</title>
+    <title>{{ appName() }}</title>
     <link rel="stylesheet" href="{{ asset('css/foundation.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app2.css') }}">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
     <!-- fonts -->
-    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
 </head>
@@ -21,7 +20,7 @@
             <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
                 <div class="title-bar-left">
                     <button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
-                    <span class="title-bar-title"><a href="">LARAJOBSCO</a></span>
+                    <span class="title-bar-title"><a href="">{{ appName() }}</a></span>
                 </div>
 
                  <div class="title-bar-right">
@@ -52,17 +51,24 @@
                <div class="row">
                    <div class="top-bar-left">
                         <ul class="dropdown menu" data-dropdown-menu>
-                            <li><a href="/">LARAJOBSCO</a></li>
+                            <li><a href="/">{{ appName() }}</a></li>
                         </ul>
                     </div>
 
                     <div class="top-bar-right">
 					    <ul class="dropdown menu" data-dropdown-menu>
-				            <li><a href="/projects">Projects</a></li>
-		                    <li><a href="/blog">Blog</a></li>
-		                    <li><a href="/blog">Contact</a></li>
-		                    <li><a href="/newsletter">NewsLetter</a></li>
-					    </ul>
+				            <li><a href="/projects">About</a></li>
+                            @if(auth()->check())
+                                <li><a href="/blog">{{ auth()->user()->name }}</a></li>
+                                <li class="logout-button">
+                                    <form method="POST" action="/logout">
+                                        {{ csrf_field() }}
+                                        <button type="submit">Logout</button>
+                                    </form>
+                                </li>
+                            @endif
+                            <li><a href="{{ route('create-job') }}">Post a Job</a></li>
+                        </ul>
 					</div>
                </div>
             </div>

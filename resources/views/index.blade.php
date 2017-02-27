@@ -12,6 +12,8 @@
 
 				@each('partials.job-item', $jobs, 'job')
 
+				{{ $jobs->links() }}
+
 			</div>
 
 		</div>

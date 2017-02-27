@@ -17,3 +17,5 @@ Route::get('/', 'JobsController@index')->name('index');
 Route::get('jobs/create', 'JobsController@create')->name('create-job');
 Route::get('jobs/{job}', 'JobsController@show')->name('show-job');
 Route::post('jobs', 'JobsController@store')->name('store-job');
+
+Route::get('u/{username}', 'UsersController@show')->name('user-profile');

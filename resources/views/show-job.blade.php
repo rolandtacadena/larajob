@@ -20,7 +20,12 @@
                     </div>
                 </div>
             </div>
-
+            <hr>
+            <div class="row">
+                <h5>Job Details</h5>
+                <p class="location">Remote/Anywhere</p>
+                <p class="date_posted">{{ $job->created_at->format('F d, Y') }}</p>
+            </div>
         </div>
 
         <div class="large-8 columns show-job-details">

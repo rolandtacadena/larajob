@@ -4,9 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateJobsFormRequest;
 use App\Job;
+use App\Repositories\JobRepository;
 
 class JobsController extends Controller
 {
+    protected $jobs;
+
+    public function __construct(JobRepository $jobs)
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+        $this->jobs = $jobs;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +23,7 @@ class JobsController extends Controller
      */
     public function index()
     {
-        $jobs = Job::latest()->get();
+        $jobs = $this->jobs->allPaginated();
 
         return view('index', compact('jobs'));
     }
@@ -32,8 +41,8 @@ class JobsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param CreateJobsFormRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(CreateJobsFormRequest $request)
     {
@@ -67,9 +76,8 @@ class JobsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Job  $job
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Job $job
      */
     public function update(Request $request, Job $job)
     {

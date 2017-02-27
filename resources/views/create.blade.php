@@ -19,17 +19,33 @@
                     <div class="row">
                         <div class="small-12 columns">
                             <label>* Title
-                                <input type="text" name="title" value="{{ old('title') }}" placeholder="Title" required>
+                                <input
+                                    type="text"
+                                    name="title"
+                                    value="{{ old('title') }}"
+                                    placeholder="Title"
+                                    required
+                                >
                             </label>
                         </div>
                         <div class="small-12 columns">
                             <label>* Description
-                                <textarea name="description" placeholder="Description" cols="30" rows="10" required>{{ old('description') }}</textarea>
+                                <textarea
+                                    name="description"
+                                    placeholder="Description"
+                                    cols="30"
+                                    rows="10"
+                                    required>{{ old('description') }}</textarea>
                             </label>
                         </div>
                         <div class="small-12 columns">
                             <label>* How to apply
-                                <textarea name="how_to_apply" placeholder="How to apply" cols="30" rows="10" required>{{ old('how_to_apply') }}</textarea>
+                                <textarea
+                                    name="how_to_apply"
+                                    placeholder="How to apply"
+                                    cols="30"
+                                    rows="10"
+                                    required>{{ old('how_to_apply') }}</textarea>
                             </label>
                         </div>
                         <div class="small-12 columns">
@@ -86,7 +102,7 @@
                 </div>
                 <div class="row">
                     <div class="small-12 columns">
-                        <button type="submit" class="button medium">Post Job</button>
+                        <button type="submit" class="button large">Post Job</button>
                     </div>
                 </div>
             </form>

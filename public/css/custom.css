@@ -39,12 +39,18 @@ h6 { font-size: 1rem; }
     padding-top: 0;
     padding-bottom: 0; }
 
+.top-bar-right .menu > li:last-child { background: #1583cc; }
+.top-bar-right .menu > li.logout-button {
+    font-weight: 500;
+    padding: 1em;
+    line-height: 2em; }
 .menu > li > a {
 	color: #fff;
 	font-weight: 500;
     padding: 1em;
     line-height: 2em; }
-.menu > li > a:hover {
+.menu > li > a:hover,
+.top-bar-right .menu > li.logout-button:hover {
     background: #41525e;
     color: #fff;
     text-decoration: none; }
@@ -66,8 +72,8 @@ h6 { font-size: 1rem; }
 /*PAGES*/
 
 /*INDEX*/
-.job {
-    padding-bottom: 1.5em; }
+.jobs-list > a { color: #333; }
+    .job { padding-bottom: 1.5em; }
     .company-logo-container {
         padding-right: 0;
         max-width: 73px;
@@ -84,6 +90,12 @@ h6 { font-size: 1rem; }
     .show-job .company_tagline {
         font-style: italic;
         color: #666; }
+
+/*sidebar-post-job*/
+.sidebar-post-job {}
+    .sidebar-post-job .post-job {
+        border-radius: 4px;
+        font-size: 1em; }
 
 #SiteFooter {
 	padding: .5em 0;
