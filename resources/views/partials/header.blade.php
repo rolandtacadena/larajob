@@ -58,8 +58,12 @@
                     <div class="top-bar-right">
 					    <ul class="dropdown menu" data-dropdown-menu>
 				            <li><a href="/projects">About</a></li>
-                            @if(auth()->check())
-                                <li><a href="/blog">{{ auth()->user()->name }}</a></li>
+                            @if($isAuthenticated)
+                                <li>
+                                    <a href="{{ route('user-profile', auth()->id()) }}">
+                                        {{ auth()->user()->name }}
+                                    </a>
+                                </li>
                                 <li class="logout-button">
                                     <form method="POST" action="/logout">
                                         {{ csrf_field() }}

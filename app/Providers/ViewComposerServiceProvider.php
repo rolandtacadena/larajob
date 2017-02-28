@@ -18,7 +18,9 @@ class ViewComposerServiceProvider extends ServiceProvider
         view()->composer('create', function ($view) {
             $categories = Category::pluck('name', 'id');
             $types = Type::pluck('name', 'id');
-            $view->with(compact('categories', 'types'));
+            $authUser = auth()->user();
+            $isAuthenticated = auth()->check();
+            $view->with(compact('categories', 'types', 'authUser', 'isAuthenticated'));
         });
     }
 

@@ -13,6 +13,7 @@ class JobsController extends Controller
     public function __construct(JobRepository $jobs)
     {
         $this->middleware('auth')->except(['index', 'show']);
+
         $this->jobs = $jobs;
     }
 
