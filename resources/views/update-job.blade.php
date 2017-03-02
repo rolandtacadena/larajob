@@ -10,11 +10,9 @@
             <div class="medium-10 columns">
                 <div class="tabs-content vertical">
                     <div class="tabs-panel">
-                        <ul>
-                            @foreach($employer_jobs as $job)
-                                <li><a href="">{{ $job->title }}</a></li>
-                            @endforeach
-                        </ul>
+
+                        
+
                     </div>
                 </div>
             </div>

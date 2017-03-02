@@ -3,15 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateProfileRequest;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
+    /**
+     * Authenticated user inctance.
+     *
+     * @var \Illuminate\Contracts\Auth\Authenticatable|null
+     */
+    protected $user;
+
     /**
      * UsersController constructor.
      */
     public function __construct()
     {
+        $this->middleware(function ($request, $next) {
+            $this->user = Auth::user();
+            return $next($request);
+        });
+
         $this->middleware('auth');
     }
 
@@ -32,7 +44,9 @@ class UsersController extends Controller
      */
     public function employer_jobs()
     {
-        return view('employer-jobs');
+        $employer_jobs = $this->user->jobs;
+
+        return view('employer-jobs', compact('employer_jobs'));
     }
 
     /**

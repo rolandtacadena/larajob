@@ -8,8 +8,17 @@ use App\Repositories\JobRepository;
 
 class JobsController extends Controller
 {
+    /**
+     * @var JobRepository
+     */
     protected $jobs;
 
+    /**
+     * Setting up repository vars and middlewares.
+     *
+     * JobsController constructor.
+     * @param JobRepository $jobs
+     */
     public function __construct(JobRepository $jobs)
     {
         $this->middleware('auth')->except(['index', 'show']);
