@@ -91,11 +91,22 @@ h6 { font-size: 1rem; }
         font-style: italic;
         color: #666; }
 
+/*PROFILE*/
+.profile .tabs-content .tabs-panel {
+    display: block;
+    padding: 12px;
+}
+.profile li.tabs-title.is-active{ background: #e6e6e6; }
+
 /*sidebar-post-job*/
 .sidebar-post-job {}
     .sidebar-post-job .post-job {
         border-radius: 4px;
         font-size: 1em; }
+
+/*Form error styling*/
+.hasError { border: 1px solid #d64c4c; }
+.help-block { color: #d64c4c; }
 
 #SiteFooter {
 	padding: .5em 0;

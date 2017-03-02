@@ -23,7 +23,7 @@
             <hr>
             <div class="row">
                 <h5>Job Details</h5>
-                <p class="location">Remote/Anywhere</p>
+                <p class="location">{{ $job->location    }}</p>
                 <p class="date_posted">{{ $job->created_at->format('F d, Y') }}</p>
             </div>
         </div>

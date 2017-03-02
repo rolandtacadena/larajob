@@ -33,6 +33,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * A user has many jobs.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function jobs()
     {
         return $this->hasMany(Job::class);

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Type;
 
 class JobTypeTableSeeder extends Seeder
 {
@@ -17,6 +18,6 @@ class JobTypeTableSeeder extends Seeder
             ['name' => 'Freelance']
         ];
 
-        \App\Type::insert($job_types);
+        Type::insert($job_types);
     }
 }

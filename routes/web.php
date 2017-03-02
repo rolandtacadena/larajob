@@ -17,4 +17,10 @@ Route::get('/', 'JobsController@index')->name('index');
 Route::get('jobs/create', 'JobsController@create')->name('create-job');
 Route::get('jobs/{job}', 'JobsController@show')->name('show-job');
 Route::post('jobs', 'JobsController@store')->name('store-job');
-Route::get('u/{user}', 'UsersController@profile')->name('user-profile');
+
+Route::get('u/{user}/profile', 'UsersController@employer_profile')->name('employer-profile');
+Route::get('u/{user}/jobs', 'UsersController@employer_jobs')->name('employer_jobs');
+Route::get('u/{user}/profile/edit', 'UsersController@employer_edit_profile')->name('employer-edit-profile');
+Route::post('u/{user}/profile/update', 'UsersController@employer_update_profile')->name('employer-update-profile');
+
+Route::post('u/{user}', 'UsersController@update')->name('user-update');

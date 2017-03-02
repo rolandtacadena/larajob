@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
 
 class UsersTableSeeder extends Seeder
 {
@@ -13,7 +14,7 @@ class UsersTableSeeder extends Seeder
     {
         factory(\App\User::class, 100)->create();
 
-        \App\User::first()->update([
+        User::first()->update([
             'name' => 'Rolad Tacadena',
             'email' => 'tacadena.roland@gmail.com',
             'password' => bcrypt('090412')

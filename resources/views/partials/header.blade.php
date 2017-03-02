@@ -58,10 +58,11 @@
                     <div class="top-bar-right">
 					    <ul class="dropdown menu" data-dropdown-menu>
 				            <li><a href="/projects">About</a></li>
+
                             @if($isAuthenticated)
                                 <li>
-                                    <a href="{{ route('user-profile', auth()->id()) }}">
-                                        {{ auth()->user()->name }}
+                                    <a href="{{ route('employer-profile', $authUser) }}">
+                                        {{ $authUser->name }}
                                     </a>
                                 </li>
                                 <li class="logout-button">
@@ -71,6 +72,7 @@
                                     </form>
                                 </li>
                             @endif
+
                             <li><a href="{{ route('create-job') }}">Post a Job</a></li>
                         </ul>
 					</div>
