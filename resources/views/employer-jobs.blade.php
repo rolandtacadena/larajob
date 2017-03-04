@@ -12,7 +12,7 @@
                     <div class="tabs-panel">
                         <ul>
                             @foreach($employer_jobs as $job)
-                                <li><a href="">{{ $job->title }}</a></li>
+                                <li><a href="{{ route('edit-job', $job) }}">{{ $job->title }}</a></li>
                             @endforeach
                         </ul>
                     </div>

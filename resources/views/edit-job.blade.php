@@ -11,7 +11,7 @@
                 <div class="tabs-content vertical">
                     <div class="tabs-panel">
 
-                        
+                        @include('partials.forms.edit-job-form')
 
                     </div>
                 </div>

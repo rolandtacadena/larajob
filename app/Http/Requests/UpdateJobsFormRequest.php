@@ -2,9 +2,11 @@
 
 namespace App\Http\Requests;
 
+use App\Job;
+use App\Type;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateJobsFormRequest extends FormRequest
+class UpdateJobsFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -17,13 +19,24 @@ class CreateJobsFormRequest extends FormRequest
     }
 
     /**
-     * Persist form data.
+     * Process of updating job.
      */
-    public function persist()
+    public function update()
     {
-        $job = $this->user()->createJobFromForm( $this->all() );
+        $job = Job::findOrFail($this->job_id);
+        $type = Type::findOrFail($this->type);
 
-        $job->syncCategories( $this->categories );
+        $job->title     = $this->title;
+        $job->description = $this->description;
+        $job->how_to_apply = $this->how_to_apply;
+        $job->location = $this->location;
+        $job->save();
+
+        // sync categories on the job
+        $job->syncCategories($this->categories);
+
+        $type->jobs()->save($job);
+
     }
 
     /**
@@ -34,7 +47,7 @@ class CreateJobsFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'         => 'required|max:255',
+            'title'         => 'required|min:2|max:255',
             'description'   => 'required',
             'how_to_apply'  => 'required',
             'categories'    => 'required',

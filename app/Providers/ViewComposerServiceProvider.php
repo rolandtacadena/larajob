@@ -26,7 +26,7 @@ class ViewComposerServiceProvider extends ServiceProvider
      */
     public function composeCreate()
     {
-        view()->composer('create', function ($view) {
+        view()->composer(['create-job', 'edit-job'], function ($view) {
             $categories = Category::pluck('name', 'id');
             $types = Type::pluck('name', 'id');
             $view->with(compact('categories', 'types'));

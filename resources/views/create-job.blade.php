@@ -10,7 +10,7 @@
 
             <p>You'll be able to edit your job at any time after you post. Questions? Contact us.</p>
 
-            @include('partials.create-job')
+            @include('partials.forms.create-job-form')
 
         </div>
 

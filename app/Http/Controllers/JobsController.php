@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateJobsFormRequest;
+use App\Http\Requests\UpdateJobsFormRequest;
 use App\Job;
 use App\Repositories\JobRepository;
 
@@ -45,7 +46,7 @@ class JobsController extends Controller
      */
     public function create()
     {
-        return view('create');
+        return view('create-job');
     }
 
     /**
@@ -80,7 +81,7 @@ class JobsController extends Controller
      */
     public function edit(Job $job)
     {
-        //
+        return view('edit-job', compact('job'));
     }
 
     /**
@@ -89,9 +90,14 @@ class JobsController extends Controller
      * @param Request $request
      * @param Job $job
      */
-    public function update(Request $request, Job $job)
+    public function update(UpdateJobsFormRequest $request)
     {
-        //
+        $request->update();
+
+        return redirect()->route(
+            'employer_jobs',
+            $request->user()->id
+        );
     }
 
     /**

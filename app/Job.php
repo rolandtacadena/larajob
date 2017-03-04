@@ -49,4 +49,15 @@ class Job extends Model
     {
         return $this->belongsTo(Type::class);
     }
+
+    /**
+     * Sync categories to Job based on form data.
+     *
+     * @param $body
+     */
+    public function syncCategories($body)
+    {
+        return $this->categories()->sync($body);
+    }
+
 }

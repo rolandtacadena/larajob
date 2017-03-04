@@ -2,28 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UpdateProfileRequest;
+use App\Http\Requests\ProfileRequest;
 use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
     /**
-     * Authenticated user inctance.
-     *
-     * @var \Illuminate\Contracts\Auth\Authenticatable|null
-     */
-    protected $user;
-
-    /**
      * UsersController constructor.
      */
     public function __construct()
     {
-        $this->middleware(function ($request, $next) {
-            $this->user = Auth::user();
-            return $next($request);
-        });
-
         $this->middleware('auth');
     }
 
@@ -38,18 +26,6 @@ class UsersController extends Controller
     }
 
     /**
-     * Show employer jobs.
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function employer_jobs()
-    {
-        $employer_jobs = $this->user->jobs;
-
-        return view('employer-jobs', compact('employer_jobs'));
-    }
-
-    /**
      * Edit profile form.
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -60,12 +36,24 @@ class UsersController extends Controller
     }
 
     /**
+     * Show employer jobs.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function employer_jobs()
+    {
+        $employer_jobs = request()->user()->jobs()->latest()->get();
+
+        return view('employer-jobs', compact('employer_jobs'));
+    }
+
+    /**
      * Actual process of updating.
      *
      * @param UpdateProfileRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function employer_update_profile(UpdateProfileRequest $request)
+    public function employer_update_profile(ProfileRequest $request)
     {
         $request->persist();
 

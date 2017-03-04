@@ -10,9 +10,7 @@
                 <div class="tabs-content vertical">
                     <div class="tabs-panel">
                         <h4>User Profile</h4>
-
-                        @include('partials.update-profile')
-
+                        @include('partials.forms.edit-profile-form')
                     </div>
                 </div>
             </div>

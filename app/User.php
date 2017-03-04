@@ -42,4 +42,21 @@ class User extends Authenticatable
     {
         return $this->hasMany(Job::class);
     }
+
+    /**
+     * Create Job based on form data.
+     *
+     * @param $body
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function createJobFromForm($body)
+    {
+        return $this->jobs()->create([
+            'type_id'       => $body['type'],
+            'title'         => $body['title'],
+            'description'   => $body['description'],
+            'how_to_apply'  => $body['how_to_apply'],
+            'location'      => $body['location']
+        ]);
+    }
 }
