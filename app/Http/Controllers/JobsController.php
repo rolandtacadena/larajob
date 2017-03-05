@@ -108,6 +108,8 @@ class JobsController extends Controller
      */
     public function destroy(Job $job)
     {
-        //
+        $job->delete();
+
+        return redirect()->route('employer_jobs', request()->user()->id);
     }
 }

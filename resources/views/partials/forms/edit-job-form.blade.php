@@ -18,8 +18,7 @@
                         value="{{ old('title', $job->title) }}"
                         placeholder="Title"
                         class="{{ $errors->has('title') ? ' hasError' : ''}}"
-                        required
-                    >
+                        required>
                 </label>
 
                 @if ($errors->has('title'))
@@ -38,8 +37,7 @@
                         cols="30"
                         rows="10"
                         class="{{ $errors->has('description') ? ' hasError' : ''}}"
-                        required
-                    >{{ old('description', $job->description) }}</textarea>
+                        required>{{ old('description', $job->description) }}</textarea>
                 </label>
 
                 @if ($errors->has('description'))
@@ -58,8 +56,7 @@
                         cols="30"
                         rows="10"
                         class="{{ $errors->has('how_to_apply') ? ' hasError' : ''}}"
-                        required
-                    >{{ old('how_to_apply', $job->how_to_apply) }}</textarea>
+                        required>{{ old('how_to_apply', $job->how_to_apply) }}</textarea>
                 </label>
 
                 @if ($errors->has('how_to_apply'))
@@ -80,8 +77,7 @@
                             name="categories[]"
                             value="{{ $category_id }}"
                             class="{{ $errors->has('categories') ? ' hasError' : ''}}"
-                            {{ in_array($category_id, $job->categories->pluck('id')->toArray()) ? ' checked' : '' }}
-                        >
+                            {{ in_array($category_id, $job->categories->pluck('id')->toArray()) ? ' checked' : '' }}>
                         <label for="cat{{ $category_id }}">{{ $category_name }}</label>
                     @endforeach
 
@@ -109,8 +105,7 @@
                         name="type"
                         value="{{ $type_id }}"
                         {{ $job->type->id == $type_id ? ' checked' : '' }}
-                        {{ old('type') == $type_id ? ' checked' : '' }}
-                    >
+                        {{ old('type') == $type_id ? ' checked' : '' }}>
                     <label for="type{{ $type_id }}">{{ ucwords($type_name) }}</label>
                 </div>
 
@@ -135,8 +130,7 @@
                     placeholder="location"
                     class="{{ $errors->has('location') ? ' hasError' : ''}}"
                     {{ old('how_to_apply', $job->how_to_apply) }}
-                    required
-                >
+                    required>
             </label>
 
             @if ($errors->has('location'))
@@ -150,8 +144,11 @@
 
     <div class="row">
         <div class="small-12 columns">
-            <button type="submit" class="button large">Update Job</button>
+            <button type="submit" class="button">Update Job</button>
+
+            <!-- include delete forn -->
+            @include('partials.forms.delete-job-form')
+
         </div>
     </div>
-
 </form>

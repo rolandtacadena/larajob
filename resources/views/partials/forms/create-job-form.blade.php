@@ -14,8 +14,7 @@
                         value="{{ old('title') }}"
                         placeholder="Title"
                         class="{{ $errors->has('title') ? ' hasError' : ''}}"
-                        required
-                    >
+                        required>
                 </label>
 
                 @if ($errors->has('title'))
@@ -34,8 +33,7 @@
                         cols="30"
                         rows="10"
                         class="{{ $errors->has('description') ? ' hasError' : ''}}"
-                        required
-                    >{{ old('description') }}</textarea>
+                        required>{{ old('description') }}</textarea>
                 </label>
 
                 @if ($errors->has('description'))
@@ -54,8 +52,7 @@
                         cols="30"
                         rows="10"
                         class="{{ $errors->has('how_to_apply') ? ' hasError' : ''}}"
-                        required
-                    >{{ old('how_to_apply') }}</textarea>
+                        required>{{ old('how_to_apply') }}</textarea>
                 </label>
 
                 @if ($errors->has('how_to_apply'))
@@ -79,8 +76,7 @@
                             class="{{ $errors->has('categories') ? ' hasError' : ''}}"
                             @if(!empty(old('categories')))
                                 {{ in_array($category_id, old('categories')) ? ' checked' : '' }}
-                            @endif
-                        >
+                            @endif>
                         <label for="cat{{ $category_id }}">{{ $category_name }}</label>
                     @endforeach
 
@@ -109,8 +105,7 @@
                         value="{{ $type_id }}"
                         {{ old('type') == $type_id ? ' checked' : '' }}
                         class="{{ $errors->has('type') ? ' hasError' : ''}}"
-                        required
-                    >
+                        required>
                     <label for="type{{ $type_id }}">{{ ucwords($type_name) }}</label>
                 </div>
 
@@ -134,8 +129,7 @@
                     value="{{ old('location') }}"
                     placeholder="location"
                     class="{{ $errors->has('location') ? ' hasError' : ''}}"
-                    required
-                >
+                    required>
             </label>
 
             @if ($errors->has('location'))
