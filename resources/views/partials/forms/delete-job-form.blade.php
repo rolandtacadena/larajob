@@ -1,4 +1,4 @@
-<form method="POST" action="{{ route('delete-job', $job) }}">
+<form id="delete-job-form" method="POST" action="{{ route('delete-job', $job) }}">
     
     {{ csrf_field() }}
     
@@ -6,6 +6,6 @@
 
     <input type="hidden" value="{{ $job }}">
 
-    <button type="submit" class="alert button">Delete Job</button>
+    <button id="delete-job-btn" type="submit" class="alert button">Delete Job</button>
 
 </form>

@@ -59,6 +59,8 @@ class JobsController extends Controller
     {
         $request->persist();
 
+        flash()->success('Job Created', 'You have successfully created a new job!');
+
         return redirect()->route('index');
     }
 
@@ -94,6 +96,8 @@ class JobsController extends Controller
     {
         $request->update();
 
+        flash()->success('Job Updated', 'You have successfully updated the job!');
+
         return redirect()->route(
             'employer_jobs',
             $request->user()->id
@@ -109,6 +113,8 @@ class JobsController extends Controller
     public function destroy(Job $job)
     {
         $job->delete();
+
+        flash()->success('Job Deleted', 'You have successfully deleted '. $job->title .' job!');
 
         return redirect()->route('employer_jobs', request()->user()->id);
     }

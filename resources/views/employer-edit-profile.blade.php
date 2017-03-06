@@ -9,7 +9,7 @@
             <div class="medium-10 columns">
                 <div class="tabs-content vertical">
                     <div class="tabs-panel">
-                        <h4>User Profile</h4>
+                        <h5>My Profile</h5>
                         @include('partials.forms.edit-profile-form')
                     </div>
                 </div>

@@ -63,8 +63,7 @@ h6 { font-size: 1rem; }
 
 .title-bar-title a { color: #fff; }
 
-.page-content {
-    margin: 1.875rem 0; }
+.page-content { margin: 1.875rem 0; }
 
 @media screen and (min-width: 43.75em) {
     .page-content { margin: 4rem 0; } }
@@ -73,23 +72,23 @@ h6 { font-size: 1rem; }
 
 /*INDEX*/
 .jobs-list > a { color: #333; }
-    .job { padding-bottom: 1.5em; }
-    .company-logo-container {
-        padding-right: 0;
-        max-width: 73px;
-        max-height: 73px;
-        position: absolute; }
-    .job-details {
-        padding-left: 101px; }
+.job { padding-bottom: 1.5em; }
+.company-logo-container {
+    padding-right: 0;
+    max-width: 73px;
+    max-height: 73px;
+    position: absolute; }
+.job-details {
+    padding-left: 101px; }
 
 /*SHOW JOB*/
 .show-job {}
     .show-job .company_name {
     font-size: 1.5em;
     font-weight: bold; }
-    .show-job .company_tagline {
-        font-style: italic;
-        color: #666; }
+.show-job .company_tagline {
+    font-style: italic;
+    color: #666; }
 
 /*PROFILE*/
 .profile .tabs-content .tabs-panel {
@@ -97,12 +96,22 @@ h6 { font-size: 1rem; }
     padding: 12px;
 }
 .profile li.tabs-title.is-active{ background: #e6e6e6; }
+.profile .logout button {
+    display: block;
+    padding: 1.25rem 1.5rem;
+    line-height: 1;
+    font-size: 0.75rem;
+    color: #2199e8;
+    text-decoration: none;
+    line-height: inherit;
+    cursor: pointer;
+}
 
-/*sidebar-post-job*/
+    /*sidebar-post-job*/
 .sidebar-post-job {}
-    .sidebar-post-job .post-job {
-        border-radius: 4px;
-        font-size: 1em; }
+.sidebar-post-job .post-job {
+    border-radius: 4px;
+    font-size: 1em; }
 
 /*Form error styling*/
 .hasError { border: 1px solid #d64c4c; }

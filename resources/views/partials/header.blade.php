@@ -5,7 +5,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ appName() }}</title>
-    <link rel="stylesheet" href="{{ asset('css/foundation.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vendor/foundation.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vendor/sweetalert.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app2.css') }}">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
