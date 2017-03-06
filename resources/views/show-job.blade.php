@@ -40,8 +40,13 @@
                 <h4>How to apply</h4>
                 <p>{{ $job->how_to_apply }}</p>
             </div>
-        </div>
 
+            <!-- show update job button if the user owns the job -->
+            @can('update-job', $job)
+                <a class="button" href="{{ route('edit-job', $job) }}">Edit Job</a>
+            @endcan
+
+        </div>
     </div>
 
 @endsection

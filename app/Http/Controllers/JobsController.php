@@ -6,6 +6,7 @@ use App\Http\Requests\CreateJobsFormRequest;
 use App\Http\Requests\UpdateJobsFormRequest;
 use App\Job;
 use App\Repositories\JobRepository;
+use Illuminate\Support\Facades\Gate;
 
 class JobsController extends Controller
 {
@@ -72,6 +73,10 @@ class JobsController extends Controller
      */
     public function show(Job $job)
     {
+        if(auth()->user()->can('update-job', $job)){
+            flash()->info('You created this job', 'You have the option to update the job.');
+        }
+
         return view('show-job', compact('job'));
     }
 

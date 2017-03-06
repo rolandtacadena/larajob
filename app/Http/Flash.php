@@ -15,7 +15,7 @@ class Flash {
      */
     public function create($title, $message, $level, $key = 'flash_message')
     {
-        return session()->flash($key, [
+        return request()->session()->flash($key, [
             'title'   => $title,
             'message' => $message,
             'level'   => $level,

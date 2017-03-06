@@ -25,6 +25,11 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        /**
+         * Check if authenticated user owns the job so that it can update the job.
+         */
+        Gate::define('update-job', function ($user, $job) {
+            return $user->id == $job->user->id;
+        });
     }
 }
