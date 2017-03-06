@@ -13,7 +13,9 @@
                 <div class="small-4 columns">
                     <div class="row">
                         <div class="small-12 columns">
-                            <span class="badge">new</span>
+                            @can('update-job', $job)
+                                <span class="label owned">you owned this job</span>
+                            @endcan
                         </div>
                         <div class="small-12 columns">
                             <span class="company_name">{{ $job->user->company_web_url }}</span>

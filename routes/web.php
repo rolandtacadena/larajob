@@ -16,9 +16,9 @@ Auth::routes();
 Route::post('jobs', 'JobsController@store')->name('store-job');
 Route::get('/', 'JobsController@index')->name('index');
 Route::get('jobs/create', 'JobsController@create')->name('create-job');
-Route::get('jobs/{job}', 'JobsController@show')->name('show-job');
-Route::patch('jobs/{job}', 'JobsController@update')->name('update-job');
 Route::delete('jobs/{job}', 'JobsController@destroy')->name('delete-job');
+Route::patch('jobs/{job}', 'JobsController@update')->name('update-job');
+Route::get('jobs/{job}', 'JobsController@show')->name('show-job');
 Route::get('jobs/{job}/edit', 'JobsController@edit')->name('edit-job');
 
 Route::get('u/{user}/profile', 'UsersController@employer_profile')->name('employer-profile');
