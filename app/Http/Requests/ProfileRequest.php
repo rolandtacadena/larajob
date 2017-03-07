@@ -19,7 +19,7 @@ class ProfileRequest extends FormRequest
     /**
      * Persist form data.
      */
-    public function persist()
+    public function update()
     {
         $this->user()->update([
             'name'              => $this->name,

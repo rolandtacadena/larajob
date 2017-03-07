@@ -55,7 +55,9 @@ class UsersController extends Controller
      */
     public function employer_update_profile(ProfileRequest $request)
     {
-        $request->persist();
+        $request->update();
+
+        flash()->success('Profile Updated', 'You have successfully updated your profile!');
 
         return redirect()->route(
             'employer-edit-profile',
