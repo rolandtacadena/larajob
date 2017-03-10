@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileRequest;
-use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -50,14 +49,16 @@ class UsersController extends Controller
     /**
      * Actual process of updating.
      *
-     * @param UpdateProfileRequest $request
+     * @param ProfileRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function employer_update_profile(ProfileRequest $request)
     {
         $request->update();
 
-        flash()->success('Profile Updated', 'You have successfully updated your profile!');
+        flash()->success(
+            'Profile Updated', 'You have successfully updated your profile!'
+        );
 
         return redirect()->route(
             'employer-edit-profile',

@@ -92,10 +92,10 @@ class JobsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     *  Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param Job $job
+     * @param UpdateJobsFormRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(UpdateJobsFormRequest $request)
     {

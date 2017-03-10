@@ -26,7 +26,7 @@
                 <div class="small-8 columns">
                     <div class="row">
                         <div class="small-7 columns">
-                            <span class="job-title">{{ $job->title }}</span>
+                            <span class="job-title">{{ str_limit($job->title, 30) }}</span>
                         </div>
                         <div class="small-5 columns text-right">
                             <div class="row">
