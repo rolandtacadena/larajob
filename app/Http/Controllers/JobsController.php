@@ -60,7 +60,10 @@ class JobsController extends Controller
     {
         $request->persist();
 
-        flash()->success('Job Created', 'You have successfully created a new job!');
+        flash()->success(
+            'Job Created',
+            'You have successfully created a new job!'
+        );
 
         return redirect()->route('index');
     }
@@ -74,7 +77,10 @@ class JobsController extends Controller
     public function show(Job $job)
     {
         if(auth()->user()->can('update-job', $job)){
-            flash()->info('You created this job', 'You have the option to update the job.');
+            flash()->info(
+                'You created this job',
+                'You have the option to update the job.'
+            );
         }
 
         return view('show-job', compact('job'));
@@ -101,7 +107,10 @@ class JobsController extends Controller
     {
         $request->update();
 
-        flash()->success('Job Updated', 'You have successfully updated the job!');
+        flash()->success(
+            'Job Updated',
+            'You have successfully updated the job!'
+        );
 
         return redirect()->route(
             'employer_jobs',
@@ -119,8 +128,14 @@ class JobsController extends Controller
     {
         $job->delete();
 
-        flash()->success('Job Deleted', 'You have successfully deleted '. $job->title .' job!');
+        flash()->success(
+            'Job Deleted',
+            'You have successfully deleted '. $job->title .' job!'
+        );
 
-        return redirect()->route('employer_jobs', request()->user()->id);
+        return redirect()->route('
+            employer_jobs',
+            request()->user()->id
+        );
     }
 }

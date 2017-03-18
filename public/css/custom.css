@@ -82,11 +82,11 @@ h6 { font-size: 1rem; }
     padding-left: 101px; }
 
 /*SHOW JOB*/
-.show-job {}
-    .show-job .company_name {
+#show-job {}
+    #show-job .company_name {
     font-size: 1.5em;
     font-weight: bold; }
-.show-job .company_tagline {
+#show-job .company_tagline {
     font-style: italic;
     color: #666; }
 

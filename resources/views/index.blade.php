@@ -2,7 +2,7 @@
 
 @section('content')
 	
-	<div class="page-content index">
+	<div id="index" class="page-content">
 
 		<div class="large-8 columns">
 

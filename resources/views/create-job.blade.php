@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="page-content">
+    <div id="create-job" class="page-content">
 
         <div class="large-8 columns">
 
@@ -22,4 +22,19 @@
 
     </div>
 
+@endsection
+
+@section('additional-scripts')
+    <script src="{{ asset('js/vendor/vue.js')  }}"></script>
+    <script>
+        var createJob = new Vue({
+           el: '#create-job',
+            data: {
+                title: '',
+                description: '',
+                how_to_apply: '',
+                location: ''
+            }
+        });
+    </script>
 @endsection

@@ -62,7 +62,7 @@
 
                             @if($isAuthenticated)
                                 <li>
-                                    <a href="{{ route('employer-profile', $authUser) }}">
+                                    <a href="{{ route('employer-edit-profile', $authUser) }}">
                                         {{ $authUser->name }}
                                     </a>
                                 </li>

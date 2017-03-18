@@ -14,6 +14,7 @@
                         value="{{ old('title') }}"
                         placeholder="Title"
                         class="{{ $errors->has('title') ? ' hasError' : ''}}"
+                        v-model="title"
                         required>
                 </label>
 
@@ -33,7 +34,9 @@
                         cols="30"
                         rows="10"
                         class="{{ $errors->has('description') ? ' hasError' : ''}}"
-                        required>{{ old('description') }}</textarea>
+                        v-model="description"
+                        required
+                    >{{ old('description') }}</textarea>
                 </label>
 
                 @if ($errors->has('description'))
@@ -52,7 +55,9 @@
                         cols="30"
                         rows="10"
                         class="{{ $errors->has('how_to_apply') ? ' hasError' : ''}}"
-                        required>{{ old('how_to_apply') }}</textarea>
+                        v-model="how_to_apply"
+                        required
+                    >{{ old('how_to_apply') }}</textarea>
                 </label>
 
                 @if ($errors->has('how_to_apply'))
@@ -129,7 +134,9 @@
                     value="{{ old('location') }}"
                     placeholder="location"
                     class="{{ $errors->has('location') ? ' hasError' : ''}}"
-                    required>
+                    v-model="location"
+                    required
+                >
             </label>
 
             @if ($errors->has('location'))
@@ -141,7 +148,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div v-show="title && description && how_to_apply && location" class="row">
         <div class="small-12 columns">
             <button type="submit" class="button large">Post Job</button>
         </div>

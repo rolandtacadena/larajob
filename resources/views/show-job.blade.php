@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="page-content show-job">
+    <div id="show-job" class="page-content">
 
         <div class="large-4 columns job-sidebar">
             <div class="row">

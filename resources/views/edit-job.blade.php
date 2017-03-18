@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="page-content profile">
+    <div id="edit-job" class="page-content profile">
         <div class="row collapse">
             <div class="medium-2 columns">
                 @include('partials.employer-tabs')
