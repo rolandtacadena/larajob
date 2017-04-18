@@ -13,7 +13,9 @@
     <script src="{{ asset('js/vendor/what-input.js') }}"></script>
     <script src="{{ asset('js/vendor/foundation.js') }}"></script>
     <script src="{{ asset('js/vendor/sweetalert.min.js') }}"></script>
-    <script src="{{ asset('js/app2.js') }}"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
 
     @yield('additional-scripts')
 

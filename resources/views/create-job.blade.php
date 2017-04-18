@@ -23,18 +23,3 @@
     </div>
 
 @endsection
-
-@section('additional-scripts')
-    <script src="{{ asset('js/vendor/vue.js')  }}"></script>
-    <script>
-        var createJob = new Vue({
-           el: '#create-job',
-            data: {
-                title: '',
-                description: '',
-                how_to_apply: '',
-                location: ''
-            }
-        });
-    </script>
-@endsection

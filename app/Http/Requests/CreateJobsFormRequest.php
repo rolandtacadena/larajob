@@ -36,7 +36,7 @@ class CreateJobsFormRequest extends FormRequest
         return [
             'title'         => 'required|max:255',
             'description'   => 'required',
-            'how_to_apply'  => 'required',
+            'how_to_apply'  => 'required|max:255',
             'categories'    => 'required',
             'type'          => 'required'
         ];

@@ -65,7 +65,7 @@ class JobsController extends Controller
             'You have successfully created a new job!'
         );
 
-        return redirect()->route('index');
+        return redirect()->route('create-job');
     }
 
     /**

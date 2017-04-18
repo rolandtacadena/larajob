@@ -7,8 +7,7 @@
     <title>{{ appName() }}</title>
     <link rel="stylesheet" href="{{ asset('css/vendor/foundation.css') }}">
     <link rel="stylesheet" href="{{ asset('css/vendor/sweetalert.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app2.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">

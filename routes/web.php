@@ -25,3 +25,10 @@ Route::get('u/{user}/profile', 'UsersController@employer_profile')->name('employ
 Route::get('u/{user}/jobs', 'UsersController@employer_jobs')->name('employer_jobs');
 Route::get('u/{user}/profile/edit', 'UsersController@employer_edit_profile')->name('employer-edit-profile');
 Route::post('u/{user}/profile/update', 'UsersController@employer_update_profile')->name('employer-update-profile');
+
+// ajax routes
+Route::group(['prefix' => 'ajax'], function () {
+    Route::get('categories', 'CategoriesController@all');
+    Route::get('types', 'TypesController@all');
+});
+

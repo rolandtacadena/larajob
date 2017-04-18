@@ -14,8 +14,9 @@
                         value="{{ old('title') }}"
                         placeholder="Title"
                         class="{{ $errors->has('title') ? ' hasError' : ''}}"
-                        v-model="title"
-                        required>
+                        autofocus
+                        required
+                    >
                 </label>
 
                 @if ($errors->has('title'))
@@ -34,7 +35,6 @@
                         cols="30"
                         rows="10"
                         class="{{ $errors->has('description') ? ' hasError' : ''}}"
-                        v-model="description"
                         required
                     >{{ old('description') }}</textarea>
                 </label>
@@ -55,7 +55,6 @@
                         cols="30"
                         rows="10"
                         class="{{ $errors->has('how_to_apply') ? ' hasError' : ''}}"
-                        v-model="how_to_apply"
                         required
                     >{{ old('how_to_apply') }}</textarea>
                 </label>
@@ -81,17 +80,16 @@
                             class="{{ $errors->has('categories') ? ' hasError' : ''}}"
                             @if(!empty(old('categories')))
                                 {{ in_array($category_id, old('categories')) ? ' checked' : '' }}
-                            @endif>
+                            @endif
+                        >
                         <label for="cat{{ $category_id }}">{{ $category_name }}</label>
                     @endforeach
-
-                    @if ($errors->has('categories'))
-                        <span class="help-block">
+                </fieldset>
+                @if ($errors->has('categories'))
+                    <span class="help-block">
                             <strong>{{ $errors->first('categories') }}</strong>
                         </span>
-                    @endif
-
-                </fieldset>
+                @endif
             </div>
         </div>
     </fieldset>
@@ -134,7 +132,6 @@
                     value="{{ old('location') }}"
                     placeholder="location"
                     class="{{ $errors->has('location') ? ' hasError' : ''}}"
-                    v-model="location"
                     required
                 >
             </label>
@@ -148,7 +145,7 @@
         </div>
     </div>
 
-    <div v-show="title && description && how_to_apply && location" class="row">
+    <div class="row">
         <div class="small-12 columns">
             <button type="submit" class="button large">Post Job</button>
         </div>
