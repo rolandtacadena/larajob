@@ -23,7 +23,7 @@ class JobsController extends Controller
      */
     public function __construct(JobRepository $jobs)
     {
-        $this->middleware('auth')->except(['index', 'show']);
+        $this->middleware('auth')->except(['index', 'show', 'all']);
 
         $this->jobs = $jobs;
     }
@@ -35,9 +35,19 @@ class JobsController extends Controller
      */
     public function index()
     {
-        $jobs = $this->jobs->allPaginated();
+        //$jobs = $this->jobs->allPaginated();
 
-        return view('index', compact('jobs'));
+        return view('index');
+    }
+
+    /**
+     * Get all jobs.
+     *
+     * @return mixed
+     */
+    public function all()
+    {
+        return $this->jobs->all()->with('user', 'type')->take(15)->get();
     }
 
     /**
@@ -76,7 +86,7 @@ class JobsController extends Controller
      */
     public function show(Job $job)
     {
-        if(auth()->user()->can('update-job', $job)){
+        if(auth()->check() && auth()->user()->can('update-job', $job)){
             flash()->info(
                 'You created this job',
                 'You have the option to update the job.'
@@ -133,8 +143,8 @@ class JobsController extends Controller
             'You have successfully deleted '. $job->title .' job!'
         );
 
-        return redirect()->route('
-            employer_jobs',
+        return redirect()->route(
+            'employer_jobs',
             request()->user()->id
         );
     }

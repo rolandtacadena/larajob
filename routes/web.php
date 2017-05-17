@@ -28,7 +28,11 @@ Route::post('u/{user}/profile/update', 'UsersController@employer_update_profile'
 
 // ajax routes
 Route::group(['prefix' => 'ajax'], function () {
+    Route::get('jobs', 'JobsController@all');
     Route::get('categories', 'CategoriesController@all');
     Route::get('types', 'TypesController@all');
+    Route::get('auth-check', function () {
+        return auth()->check() ? '1' : 0;
+    });
 });
 
