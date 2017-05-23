@@ -35,8 +35,8 @@ $factory->define(App\Category::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Job::class, function (Faker\Generator $faker) {
     return [
-        'user_id' => 1,
-        'type_id' => 1,
+        'user_id' => $faker->numberBetween(1, \App\User::count()),
+        'type_id' => $faker->numberBetween(1, \App\Type::count()),
         'title' => $faker->name,
         'description' => $faker->paragraph(40),
         'location' => $faker->sentence,
