@@ -31,8 +31,6 @@ Route::group(['prefix' => 'ajax'], function () {
     Route::get('jobs', 'JobsController@all');
     Route::get('categories', 'CategoriesController@all');
     Route::get('types', 'TypesController@all');
-    Route::get('auth-check', function () {
-        return auth()->check() ? '1' : 0;
-    });
+    Route::get('get-auth-user', 'UsersController@get_auth_user');
 });
 

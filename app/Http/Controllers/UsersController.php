@@ -11,7 +11,7 @@ class UsersController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('get_auth_user');
     }
 
     /**
@@ -64,5 +64,22 @@ class UsersController extends Controller
             'employer-edit-profile',
             request()->user()->id
         );
+    }
+
+    public function get_auth_user()
+    {
+        if( ! auth()->check()) {
+            return response()->json([
+                'error' => 'No authenticated user found'
+            ]);
+        }
+
+        return response()->json([
+            'authUser' => [
+                'id' => auth()->id(),
+                'name' => auth()->user()->name,
+                'email' => auth()->user()->email
+            ]
+        ]);
     }
 }

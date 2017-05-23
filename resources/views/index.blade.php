@@ -10,11 +10,8 @@
 
 			<div class="jobs-list">
 
-				{{--@each('partials.job-item', $jobs, 'job')--}}
-
-				{{--{{ $jobs->links() }}--}}
-
-				<a v-for="job in jobs" :href="job.id">
+				<!-- displaying each jobs through vue -->
+				<a v-for="job in jobs" :href="'jobs/' + job.id">
 					<div class="row job">
 
 						<div class="company-logo-container float-left">
@@ -25,20 +22,17 @@
 
 						<div class="job-details small-12 columns">
 							<div class="row">
-
 								<div class="small-4 columns">
 									<div class="row">
 										<div class="small-12 columns">
-											{{--@can('update-job', $job)--}}
-												{{--<span class="label owned">you owned this job</span>--}}
-											{{--@endcan--}}
+											<!-- display this badge if the user created the job -->
+											<span v-if="authUser.id == job.user.id" class="label owned">you owned this job</span>
 										</div>
 										<div class="small-12 columns">
 											<span class="company_name">@{{ job.user.company_web_url }}</span>
 										</div>
 									</div>
 								</div>
-
 								<div class="small-8 columns">
 									<div class="row">
 										<div class="small-7 columns">
@@ -56,20 +50,15 @@
 										</div>
 									</div>
 								</div>
-
 							</div>
 						</div>
 					</div>
 				</a>
-
 			</div>
-
 		</div>
 
 		<div class="large-4 columns">
-
 			@include('partials.sidebar')
-
 		</div>
 
 	</div>
@@ -82,17 +71,33 @@
 			el: '#index',
             data: {
                 jobs: [],
-                isLoggedIn: window.isLoggedIn,
+				isLoggedIn: false,
+				authUser: {}
             },
 			created(){
                 this.getAllJobs();
+                this.getAuthUser();
 			},
 			methods: {
 			    getAllJobs() {
                     axios.get('/ajax/jobs')
 					.then(response => this.jobs = response.data)
 					.catch(error => console.log(error));
-				}
+				},
+
+                getAuthUser() {
+			        var _self = this;
+					axios.get('/ajax/get-auth-user')
+					.then(function (response) {
+                        if( ! response.data.hasOwnProperty('error')) {
+                            _self.authUser = response.data.authUser;
+							_self.isLoggedIn = true;
+                        }
+                    })
+					.catch(function (error) {
+						console.log('error');
+                    })
+			    }
 			}
 		})
 	</script>
