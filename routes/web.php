@@ -34,3 +34,6 @@ Route::group(['prefix' => 'ajax'], function () {
     Route::get('get-auth-user', 'UsersController@get_auth_user');
 });
 
+// static routes
+Route::get('about', 'StaticPagesController@about')->name('about');
+

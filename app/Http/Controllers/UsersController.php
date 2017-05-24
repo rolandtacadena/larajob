@@ -66,6 +66,11 @@ class UsersController extends Controller
         );
     }
 
+    /**
+     * Get the authenticated user.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function get_auth_user()
     {
         if( ! auth()->check()) {

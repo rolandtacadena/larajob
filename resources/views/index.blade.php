@@ -68,18 +68,23 @@
 @section('additional-scripts')
 	<script>
 		var jobs = new Vue({
+
 			el: '#index',
-            data: {
+
+			data: {
                 jobs: [],
 				isLoggedIn: false,
 				authUser: {}
             },
+
 			created(){
                 this.getAllJobs();
                 this.getAuthUser();
 			},
+
 			methods: {
-			    getAllJobs() {
+
+				getAllJobs() {
                     axios.get('/ajax/jobs')
 					.then(response => this.jobs = response.data)
 					.catch(error => console.log(error));
@@ -99,6 +104,7 @@
                     })
 			    }
 			}
-		})
+		});
+
 	</script>
 @endsection

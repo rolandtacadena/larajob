@@ -140,7 +140,7 @@ class JobsController extends Controller
 
         flash()->success(
             'Job Deleted',
-            'You have successfully deleted '. $job->title .' job!'
+            'Job successfully deleted!'
         );
 
         return redirect()->route(

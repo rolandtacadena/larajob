@@ -48,7 +48,9 @@
 			</div>
 
             <div id="main-menu" class="top-bar">
+
                <div class="row">
+
                    <div class="top-bar-left">
                         <ul class="dropdown menu" data-dropdown-menu>
                             <li><a href="/">{{ appName() }}</a></li>
@@ -57,26 +59,33 @@
 
                     <div class="top-bar-right">
 					    <ul class="dropdown menu" data-dropdown-menu>
-				            <li><a href="/projects">About</a></li>
+				            <li><a href="{{ route('about') }}">About</a></li>
+                            <li><a href="/login">Login</a></li>
 
-                            @if($isAuthenticated)
+                        @if($isAuthenticated)
+
                                 <li>
                                     <a href="{{ route('employer-edit-profile', $authUser) }}">
                                         {{ $authUser->name }}
                                     </a>
                                 </li>
+
                                 <li class="logout-button">
                                     <form method="POST" action="/logout">
                                         {{ csrf_field() }}
                                         <button type="submit">Logout</button>
                                     </form>
                                 </li>
+
                             @endif
 
                             <li><a href="{{ route('create-job') }}">Post a Job</a></li>
+
                         </ul>
 					</div>
+
                </div>
+
             </div>
 
             <div class="off-canvas-content" data-off-canvas-content>
