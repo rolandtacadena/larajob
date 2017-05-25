@@ -60,6 +60,7 @@
                     <div class="top-bar-right">
 					    <ul class="dropdown menu" data-dropdown-menu>
 				            <li><a href="{{ route('about') }}">About</a></li>
+
                         @if($isAuthenticated)
 
                                 <li>
