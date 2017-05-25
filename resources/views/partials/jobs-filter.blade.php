@@ -3,7 +3,7 @@
         <div class="row">
             <div class="medium-6 columns">
                 <label>Filter:
-                    <input type="text" placeholder=".medium-6.columns">
+                    <input type="text" placeholder="Filter jobs">
                 </label>
             </div>
             <div class="medium-6 columns">
