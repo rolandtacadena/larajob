@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
         factory(\App\User::class, 100)->create();
 
         User::first()->update([
-            'name' => 'Rolad Tacadena',
+            'name' => 'Roland Tacadena',
             'email' => 'tacadena.roland@gmail.com',
             'password' => bcrypt('090412')
         ]);

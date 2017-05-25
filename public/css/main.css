@@ -72,7 +72,7 @@ h6 { font-size: 1rem; }
 
 /*INDEX*/
 .jobs-list > a { color: #333; }
-.job { padding-bottom: 1.5em; }
+.job { border-bottom: 1px solid #e2e2e2; padding: 5px 0; }
 .company-logo-container {
     padding-right: 0;
     max-width: 73px;

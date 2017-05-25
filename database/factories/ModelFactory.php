@@ -37,9 +37,9 @@ $factory->define(App\Job::class, function (Faker\Generator $faker) {
     return [
         'user_id' => $faker->numberBetween(1, 30),
         'type_id' => $faker->numberBetween(1, 3),
-        'title' => $faker->name,
+        'title' => $faker->jobTitle,
         'description' => $faker->paragraph(40),
-        'location' => $faker->sentence,
+        'location' => $faker->city,
         'how_to_apply' => 'Email github, projects or resume to tacadena.roland@gmail.com'
     ];
 });
