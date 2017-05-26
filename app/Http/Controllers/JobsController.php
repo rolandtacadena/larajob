@@ -47,6 +47,7 @@ class JobsController extends Controller
      */
     public function all()
     {
+
         return $this->jobs->all()->with('user', 'type')->take(15)->get();
     }
 

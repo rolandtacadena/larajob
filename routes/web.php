@@ -32,6 +32,7 @@ Route::group(['prefix' => 'ajax'], function () {
     Route::get('categories', 'CategoriesController@all');
     Route::get('types', 'TypesController@all');
     Route::get('get-auth-user', 'UsersController@get_auth_user');
+    Route::get('search', 'SearchController@search')->name('job-search');
 });
 
 // static routes
