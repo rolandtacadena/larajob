@@ -15,13 +15,14 @@
                             <div class="{{ $errors->has('email') ? ' has-error' : '' }}">
                                 <label>Email Address
                                     <input
-                                            id="email"
-                                            type="email"
-                                            name="email"
-                                            value="{{ old('email') }}"
-                                            placeholder="email"
-                                            required
-                                            autofocus>
+                                        id="email"
+                                        type="email"
+                                        name="email"
+                                        value="{{ old('email') }}"
+                                        placeholder="email"
+                                        required
+                                        autofocus
+                                    >
                                 </label>
                                 @if ($errors->has('email'))
                                     <span class="form-error is-visible">
@@ -35,11 +36,12 @@
                             <div class="{{ $errors->has('password') ? ' has-error' : '' }}">
                                 <label>Password
                                     <input
-                                            id="password"
-                                            type="password"
-                                            name="password"
-                                            placeholder="password"
-                                            required>
+                                        id="password"
+                                        type="password"
+                                        name="password"
+                                        placeholder="password"
+                                        required
+                                    >
                                 </label>
                                 @if ($errors->has('password'))
                                     <span class="form-error is-visible">

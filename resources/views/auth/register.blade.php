@@ -20,7 +20,8 @@
                                         name="name"
                                         value="{{ old('name') }}"
                                         required
-                                        autofocus>
+                                        autofocus
+                                    >
                                 </label>
                                 @if ($errors->has('name'))
                                     <span class="form-error is-visible">
@@ -38,7 +39,8 @@
                                         type="email"
                                         name="email"
                                         value="{{ old('email') }}"
-                                        required>
+                                        required
+                                    >
                                 </label>
                                 @if ($errors->has('email'))
                                     <span class="form-error is-visible">
@@ -55,7 +57,8 @@
                                         id="password"
                                         type="password"
                                         name="password"
-                                        required>
+                                        required
+                                    >
                                 </label>
                                 @if ($errors->has('password'))
                                     <span class="form-error is-visible">
@@ -71,7 +74,8 @@
                                     id="password-confirm"
                                     type="password"
                                     name="password_confirmation"
-                                    required>
+                                    required
+                                >
                             </label>
                         </div>
 

@@ -1,7 +1,5 @@
 <form method="POST" action="{{ route('update-job', $job) }}">
-
     {{ csrf_field() }}
-
     {{ method_field('PATCH') }}
 
     <input name="job_id" type="hidden" value="{{ $job->id }}">
@@ -130,7 +128,8 @@
                     placeholder="location"
                     class="{{ $errors->has('location') ? ' hasError' : ''}}"
                     {{ old('how_to_apply', $job->how_to_apply) }}
-                    required>
+                    required
+                >
             </label>
 
             @if ($errors->has('location'))

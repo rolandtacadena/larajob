@@ -84,12 +84,15 @@
                         >
                         <label for="cat{{ $category_id }}">{{ $category_name }}</label>
                     @endforeach
+
                 </fieldset>
+
                 @if ($errors->has('categories'))
                     <span class="help-block">
                             <strong>{{ $errors->first('categories') }}</strong>
                         </span>
                 @endif
+
             </div>
         </div>
     </fieldset>
@@ -108,7 +111,8 @@
                         value="{{ $type_id }}"
                         {{ old('type') == $type_id ? ' checked' : '' }}
                         class="{{ $errors->has('type') ? ' hasError' : ''}}"
-                        required>
+                        required
+                    >
                     <label for="type{{ $type_id }}">{{ ucwords($type_name) }}</label>
                 </div>
 
