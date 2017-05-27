@@ -34,8 +34,6 @@ class JobsController extends Controller
      */
     public function index()
     {
-        //$jobs = $this->jobs->allPaginated();
-
         return view('index');
     }
 
@@ -46,7 +44,10 @@ class JobsController extends Controller
      */
     public function all()
     {
-        return $this->jobs->all()->with('user', 'type')->take(15)->get();
+        return $this->jobs->all()
+            ->with('user', 'type')
+            ->take(15)
+            ->get();
     }
 
     /**
