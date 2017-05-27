@@ -5,8 +5,8 @@
     <fieldset class="fieldset">
         <legend>Job Description</legend>
         <div class="row">
-            <div class="small-12 columns">
 
+            <div class="small-12 columns">
                 <label>* Title
                     <input
                         type="text"
@@ -18,16 +18,14 @@
                         required
                     >
                 </label>
-
                 @if ($errors->has('title'))
                     <span class="help-block">
                         <strong>{{ $errors->first('title') }}</strong>
                     </span>
                 @endif
-
             </div>
-            <div class="small-12 columns">
 
+            <div class="small-12 columns">
                 <label>* Description
                     <textarea
                         name="description"
@@ -38,16 +36,14 @@
                         required
                     >{{ old('description') }}</textarea>
                 </label>
-
                 @if ($errors->has('description'))
                     <span class="help-block">
                         <strong>{{ $errors->first('description') }}</strong>
                     </span>
                 @endif
-
             </div>
-            <div class="small-12 columns">
 
+            <div class="small-12 columns">
                 <label>* How to apply
                     <textarea
                         name="how_to_apply"
@@ -58,18 +54,16 @@
                         required
                     >{{ old('how_to_apply') }}</textarea>
                 </label>
-
                 @if ($errors->has('how_to_apply'))
                     <span class="help-block">
                         <strong>{{ $errors->first('how_to_apply') }}</strong>
                     </span>
                 @endif
-
             </div>
+
             <div class="small-12 columns">
                 <fieldset>
                     <legend>Categories</legend>
-
                     <!-- Listing all categories -->
                     @foreach( $categories as $category_id => $category_name )
                         <input
@@ -86,21 +80,19 @@
                     @endforeach
 
                 </fieldset>
-
                 @if ($errors->has('categories'))
                     <span class="help-block">
                             <strong>{{ $errors->first('categories') }}</strong>
                         </span>
                 @endif
-
             </div>
+
         </div>
     </fieldset>
 
     <fieldset class="fieldset">
         <legend>Job Type</legend>
         <div class="row">
-
             <!-- Listing all job types -->
             @foreach( $types as $type_id => $type_name )
                 <div class="small-12 columns">
@@ -115,20 +107,17 @@
                     >
                     <label for="type{{ $type_id }}">{{ ucwords($type_name) }}</label>
                 </div>
-
             @endforeach
-
             @if ($errors->has('type'))
                 <span class="help-block">
                     <strong>{{ $errors->first('type') }}</strong>
                 </span>
             @endif
-
         </div>
     </fieldset>
+
     <div class="row">
         <div class="small-12 columns">
-
             <label>* Location
                 <input
                     type="text"
@@ -139,13 +128,11 @@
                     required
                 >
             </label>
-
             @if ($errors->has('location'))
                 <span class="help-block">
                     <strong>{{ $errors->first('location') }}</strong>
                 </span>
             @endif
-
         </div>
     </div>
 

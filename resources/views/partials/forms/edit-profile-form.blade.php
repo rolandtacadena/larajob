@@ -6,7 +6,6 @@
         <legend>User Profile</legend>
         <div class="row">
             <div class="medium-12 columns">
-
                 <label>Name
                     <input
                         name="name"
@@ -16,13 +15,11 @@
                         class="{{ $errors->has('name') ? 'hasError' : '' }}"
                     >
                 </label>
-
                 @if ($errors->has('name'))
                     <span class="help-block">
                         <strong>{{ $errors->first('name') }}</strong>
                     </span>
                 @endif
-
             </div>
         </div>
     </fieldset>
@@ -30,8 +27,8 @@
     <fieldset class="fieldset">
         <legend>Company Information</legend>
         <div class="row">
-            <div class="medium-6 columns">
 
+            <div class="medium-6 columns">
                 <label>Company Name
                     <input
                         name="company_name"
@@ -41,16 +38,14 @@
                         class="{{ $errors->has('company_name') ? 'hasError' : '' }}"
                     >
                 </label>
-
                 @if ($errors->has('company_name'))
                     <span class="help-block">
                         <strong>{{ $errors->first('company_name') }}</strong>
                     </span>
                 @endif
-
             </div>
-            <div class="medium-6 columns">
 
+            <div class="medium-6 columns">
                 <label>Company Tagline
                     <input
                         name="company_tagline"
@@ -59,12 +54,12 @@
                         placeholder="Company Tagline"
                     >
                 </label>
-
             </div>
+
         </div>
         <div class="row">
-            <div class="medium-6 columns">
 
+            <div class="medium-6 columns">
                 <label>Company Web URL
                     <input
                         name="company_web_url"
@@ -74,16 +69,14 @@
                         class="{{ $errors->has('company_web_url') ? 'hasError' : '' }}"
                     >
                 </label>
-
                 @if ($errors->has('company_web_url'))
                     <span class="help-block">
                         <strong>{{ $errors->first('company_web_url') }}</strong>
                     </span>
                 @endif
-
             </div>
-            <div class="medium-6 columns">
 
+            <div class="medium-6 columns">
                 <label>Company Logo
                     <input
                         name="company_logo"
@@ -91,8 +84,8 @@
                         value="{{ $authUser->company_logo }}"
                     >
                 </label>
-
             </div>
+
         </div>
     </fieldset>
 

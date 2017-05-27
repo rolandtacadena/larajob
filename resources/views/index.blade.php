@@ -23,19 +23,25 @@
 
 							<div class="job-details small-12 columns">
 								<div class="row">
+
 									<div class="small-3 columns">
 										<div class="row">
+
 											<div class="small-12 columns">
 												<!-- display this badge if the user created the job -->
 												<span v-if="authUser.id == job.user.id" class="label owned">you owned this job</span>
 											</div>
+
 											<div class="small-12 columns">
 												<span class="company_web_url">@{{ job.user.company_web_url }}</span>
 											</div>
+
 										</div>
 									</div>
+
 									<div class="small-9 columns">
 										<div class="row">
+
 											<div class="small-7 columns">
 												<p><span class="job-title">@{{ job.title }}</span></p>
 												<p>
@@ -43,6 +49,7 @@
 													<span class="company_tagline">@{{ job.user.company_tagline }}</span>
 												</p>
 											</div>
+
 											<div class="small-5 columns text-right">
 												<div class="row">
 													<div class="small-12">
@@ -53,8 +60,10 @@
 													</div>
 												</div>
 											</div>
+
 										</div>
 									</div>
+
 								</div>
 							</div>
 						</div>
@@ -84,10 +93,12 @@
 											<div class="small-12 columns">
 												<span class="company_web_url">@{{ result.user.company_web_url }}</span>
 											</div>
+
 										</div>
 									</div>
 									<div class="small-9 columns">
 										<div class="row">
+
 											<div class="small-7 columns">
 												<p><span class="job-title">@{{ result.title }}</span></p>
 												<p>
@@ -95,6 +106,7 @@
 													<span class="company_tagline">@{{ result.user.company_tagline }}</span>
 												</p>
 											</div>
+
 											<div class="small-5 columns text-right">
 												<div class="row">
 													<div class="small-12">
@@ -105,6 +117,7 @@
 													</div>
 												</div>
 											</div>
+
 										</div>
 									</div>
 								</div>

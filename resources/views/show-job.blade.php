@@ -6,9 +6,11 @@
 
         <div class="large-4 columns job-sidebar">
             <div class="row">
+
                 <div class="large-4 columns">
                     <img src="https://larajobs.com/logos/d552d6ecf816767a1c1961fb2ad99e6d.jpg" alt="">
                 </div>
+
                 <div class="large-8 columns">
                     <div class="small-12">
                         <span class="company_name">{{ $job->user->company_name }}</span>
@@ -19,6 +21,7 @@
                         </span>
                     </div>
                 </div>
+
             </div>
             <hr>
             <div class="row">

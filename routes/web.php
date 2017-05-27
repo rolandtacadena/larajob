@@ -13,18 +13,29 @@
 
 Auth::routes();
 
-Route::post('jobs', 'JobsController@store')->name('store-job');
-Route::get('/', 'JobsController@index')->name('index');
-Route::get('jobs/create', 'JobsController@create')->name('create-job');
-Route::delete('jobs/{job}', 'JobsController@destroy')->name('delete-job');
-Route::patch('jobs/{job}', 'JobsController@update')->name('update-job');
-Route::get('jobs/{job}', 'JobsController@show')->name('show-job');
-Route::get('jobs/{job}/edit', 'JobsController@edit')->name('edit-job');
+Route::post('jobs', 'JobsController@store')
+    ->name('store-job');
+Route::get('/', 'JobsController@index')
+    ->name('index');
+Route::get('jobs/create', 'JobsController@create')
+    ->name('create-job');
+Route::delete('jobs/{job}', 'JobsController@destroy')
+    ->name('delete-job');
+Route::patch('jobs/{job}', 'JobsController@update')
+    ->name('update-job');
+Route::get('jobs/{job}', 'JobsController@show')
+    ->name('show-job');
+Route::get('jobs/{job}/edit', 'JobsController@edit')
+    ->name('edit-job');
 
-Route::get('u/{user}/profile', 'UsersController@employer_profile')->name('employer-profile');
-Route::get('u/{user}/jobs', 'UsersController@employer_jobs')->name('employer_jobs');
-Route::get('u/{user}/profile/edit', 'UsersController@employer_edit_profile')->name('employer-edit-profile');
-Route::post('u/{user}/profile/update', 'UsersController@employer_update_profile')->name('employer-update-profile');
+Route::get('u/{user}/profile', 'UsersController@employer_profile')
+    ->name('employer-profile');
+Route::get('u/{user}/jobs', 'UsersController@employer_jobs')
+    ->name('employer_jobs');
+Route::get('u/{user}/profile/edit', 'UsersController@employer_edit_profile')
+    ->name('employer-edit-profile');
+Route::post('u/{user}/profile/update', 'UsersController@employer_update_profile')
+    ->name('employer-update-profile');
 
 // ajax routes
 Route::group(['prefix' => 'ajax'], function () {
@@ -36,5 +47,6 @@ Route::group(['prefix' => 'ajax'], function () {
 });
 
 // static routes
-Route::get('about', 'StaticPagesController@about')->name('about');
+Route::get('about', 'StaticPagesController@about')
+    ->name('about');
 

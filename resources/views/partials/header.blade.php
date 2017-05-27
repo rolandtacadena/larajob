@@ -16,8 +16,8 @@
 <body>
     <div class="off-canvas-wrapper">
         <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
-
             <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
+
                 <div class="title-bar-left">
                     <button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
                     <span class="title-bar-title"><a href="">{{ appName() }}</a></span>
@@ -61,7 +61,7 @@
 					    <ul class="dropdown menu" data-dropdown-menu>
 				            <li><a href="{{ route('about') }}">About</a></li>
 
-                        @if($isAuthenticated)
+                            @if($isAuthenticated)
 
                                 <li>
                                     <a href="{{ route('employer-edit-profile', $authUser) }}">
