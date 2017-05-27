@@ -6,7 +6,6 @@ use App\Http\Requests\CreateJobsFormRequest;
 use App\Http\Requests\UpdateJobsFormRequest;
 use App\Job;
 use App\Repositories\JobRepository;
-use Illuminate\Support\Facades\Gate;
 
 class JobsController extends Controller
 {
@@ -47,7 +46,6 @@ class JobsController extends Controller
      */
     public function all()
     {
-
         return $this->jobs->all()->with('user', 'type')->take(15)->get();
     }
 
