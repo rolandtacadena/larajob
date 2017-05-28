@@ -39,7 +39,11 @@
 				</div>
 
 				<div v-show="searchHasError == true">
-					<p>@{{ searchError }} or <a @click="clearResults">Clear results</a></p>
+					<p>@{{ searchError }} or
+						<a class="clear-results" @click="clearResults">
+							<span class="label info"><i class="fi-x"></i>clear results</span>
+						</a>
+					</p>
 				</div>
 
 			</div>
@@ -63,7 +67,7 @@
             template: `
             	<div>
             		<job v-for="job in jobs" :key="job.id">
-						<a class="job-item" :href="'jobs/' + job.id">
+						<a :href="'jobs/' + job.id">
 							<div class="row job columns">
 								<div class="company-logo-container float-left">
 									<div class="company-logo">
@@ -113,7 +117,7 @@
 		});
 
 		Vue.component('job', {
-		    template: '<div><slot></slot></div>'
+		    template: '<div class="job-item"><slot></slot></div>'
 		});
 
 		var jobs = new Vue({
