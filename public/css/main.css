@@ -73,6 +73,9 @@ h6 { font-size: 1rem; }
     -moz-border-radius: 3px;
     border-radius: 3px; }
 
+.label.owned,
+.clear-results .label { background: #e86121; }
+
 /*PAGES*/
 
 /*INDEX*/
