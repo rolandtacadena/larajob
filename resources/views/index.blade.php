@@ -10,7 +10,7 @@
 
 			<div class="jobs-list">
 
-				<div v-show="hasResults == false && searchHasError == false">
+				<div v-if="hasResults == false && searchHasError == false">
 
 					<!-- display the jobs-list component with the initial jobs -->
 					<jobs-list
@@ -22,7 +22,7 @@
 
 				</div>
 
-				<div v-show="hasResults == true && searchHasError == false">
+				<div v-if="hasResults == true && searchHasError == false">
 
 					<a class="clear-results" @click="clearResults">
 						<span class="label info"><i class="fi-x"></i>clear results</span>
@@ -38,7 +38,7 @@
 
 				</div>
 
-				<div v-show="searchHasError == true">
+				<div v-if="searchHasError == true">
 					<p>@{{ searchError }} or
 						<a class="clear-results" @click="clearResults">
 							<span class="label info"><i class="fi-x"></i>clear results</span>
@@ -126,13 +126,13 @@
 
 			data: {
                 jobs: [],
-				searchHasError: false,
+                searchResults: [],
+                isLoggedIn: false,
+                hasResults: false,
+                searchHasError: false,
                 authUser: {},
-				isLoggedIn: false,
                 searchError: '',
                 searchQuery: '',
-				hasResults: false,
-				searchResults: []
             },
 
 			/**
@@ -179,7 +179,7 @@
                     var _self = this;
                     axios.get('/ajax/search?q=' + this.searchQuery)
 					.then(function (response) {
-						if(response.data.hasOwnProperty('error')) {
+                        if(response.data.hasOwnProperty('error')) {
 							_self.searchError = response.data.error;
 							_self.searchHasError = true;
                             _self.hasResults = false;
