@@ -10,6 +10,8 @@
 
 			<div class="jobs-list">
 
+				<div v-if="searching == true" class="loader">Loading...</div>
+
 				<div v-if="hasResults == false && searchHasError == false">
 
 					<!-- display the jobs-list component with the initial jobs -->
@@ -133,6 +135,7 @@
                 authUser: {},
                 searchError: '',
                 searchQuery: '',
+                searching: false
             },
 
 			/**
@@ -177,8 +180,10 @@
                 searchJob()
 				{
                     var _self = this;
+                    this.searching = true;
                     axios.get('/ajax/search?q=' + this.searchQuery)
 					.then(function (response) {
+					    _self.searching = false;
                         if(response.data.hasOwnProperty('error')) {
 							_self.searchError = response.data.error;
 							_self.searchHasError = true;
