@@ -55,47 +55,50 @@
 
 @section('additional-scripts')
 	<script>
+
 		Vue.component('jobs-list', {
 
 			props: ['jobs', 'authUser', 'isLoggedIn'],
 
             template: `
-				<div>
-					<a class="job-item" v-for="job in jobs" :href="'jobs/' + job.id">
-						<div class="row job columns">
-							<div class="company-logo-container float-left">
-								<div class="company-logo">
-									<img src="https://larajobs.com/logos/d552d6ecf816767a1c1961fb2ad99e6d.jpg" alt="">
+            	<div>
+            		<job v-for="job in jobs" :key="job.id">
+						<a class="job-item" :href="'jobs/' + job.id">
+							<div class="row job columns">
+								<div class="company-logo-container float-left">
+									<div class="company-logo">
+										<img src="https://larajobs.com/logos/d552d6ecf816767a1c1961fb2ad99e6d.jpg" alt="">
+									</div>
 								</div>
-							</div>
-							<div class="job-details small-12 columns">
-								<div class="row">
-									<div class="small-3 columns">
-										<div class="row">
-											<div class="small-12 columns" v-if="isLoggedIn == true">
-												<span v-if="authUser.id == job.user.id" class="label owned">you owned this job</span>
-											</div>
-											<div class="small-12 columns">
-												<span class="company_web_url">@{{ job.user.company_web_url }}</span>
+								<div class="job-details small-12 columns">
+									<div class="row">
+										<div class="small-3 columns">
+											<div class="row">
+												<div class="small-12 columns" v-if="isLoggedIn == true">
+													<span v-if="authUser.id == job.user.id" class="label owned">you owned this job</span>
+												</div>
+												<div class="small-12 columns">
+													<span class="company_web_url">@{{ job.user.company_web_url }}</span>
+												</div>
 											</div>
 										</div>
-									</div>
-									<div class="small-9 columns">
-										<div class="row">
-											<div class="small-7 columns">
-												<p><span class="job-title">@{{ job.title }}</span></p>
-												<p>
-													<b><span class="company_name">@{{ job.user.company_name }}</span></b> -
-													<span class="company_tagline">@{{ job.user.company_tagline }}</span>
-												</p>
-											</div>
-											<div class="small-5 columns text-right">
-												<div class="row">
-													<div class="small-12">
-														<span class="job-type">@{{ job.type.name }}</span>
-													</div>
-													<div class="small-12">
-														<span class="location">@{{ job.location }}</span>
+										<div class="small-9 columns">
+											<div class="row">
+												<div class="small-7 columns">
+													<p><span class="job-title">@{{ job.title }}</span></p>
+													<p>
+														<b><span class="company_name">@{{ job.user.company_name }}</span></b> -
+														<span class="company_tagline">@{{ job.user.company_tagline }}</span>
+													</p>
+												</div>
+												<div class="small-5 columns text-right">
+													<div class="row">
+														<div class="small-12">
+															<span class="job-type">@{{ job.type.name }}</span>
+														</div>
+														<div class="small-12">
+															<span class="location">@{{ job.location }}</span>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -103,10 +106,14 @@
 									</div>
 								</div>
 							</div>
-						</div>
-					</a>
+						</a>
+					</job>
 				</div>
 			`
+		});
+
+		Vue.component('job', {
+		    template: '<div><slot></slot></div>'
 		});
 
 		var jobs = new Vue({
