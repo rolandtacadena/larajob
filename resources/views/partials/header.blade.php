@@ -11,7 +11,7 @@
 
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{ asset('css/fonts/foundation-icons.css') }}">
 </head>
 <body>
     <div class="off-canvas-wrapper">

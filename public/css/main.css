@@ -68,10 +68,15 @@ h6 { font-size: 1rem; }
 @media screen and (min-width: 43.75em) {
     .page-content { margin: 4rem 0; } }
 
+.label {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px; }
+
 /*PAGES*/
 
 /*INDEX*/
-.jobs-list > div > a { color: #333; }
+.jobs-list .job-item { color: #333; }
 .job { border-bottom: 1px solid #e2e2e2; padding: 5px 0; }
 .company-logo-container {
     padding-right: 0;
@@ -89,6 +94,9 @@ h6 { font-size: 1rem; }
 #show-job .company_tagline {
     font-style: italic;
     color: #666; }
+
+.clear-results:hover { cursor: pointer; }
+.clear-results .fi-x { margin-right: 5px; }
 
 /*PROFILE*/
 .profile .tabs-content .tabs-panel {
