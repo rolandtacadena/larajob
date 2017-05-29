@@ -132,7 +132,7 @@
 
     <div class="row">
         <div class="small-12 columns">
-            <button type="submit" class="button">Update Job</button>
+            <button type="submit" class="button dark">Update Job</button>
         </div>
     </div>
 

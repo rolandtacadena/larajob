@@ -91,7 +91,7 @@
 
     <div class="row">
         <div class="small-12 columns">
-            <button type="submit" class="button">Update Profile</button>
+            <button type="submit" class="button dark">Update Profile</button>
         </div>
     </div>
 

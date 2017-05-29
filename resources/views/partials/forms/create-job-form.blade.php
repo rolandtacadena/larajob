@@ -138,7 +138,7 @@
 
     <div class="row">
         <div class="small-12 columns">
-            <button type="submit" class="button large">Post Job</button>
+            <button type="submit" class="button dark">Post Job</button>
         </div>
     </div>
 

@@ -76,11 +76,9 @@ h6 { font-size: 1rem; }
 .label.owned,
 .clear-results .label { background: #e86121; }
 
-fieldset {
-    border: 1px solid #e2e2e2;
-    border-radius: 3px;
-    background: #f9f9f9
-}
+.button { border-radius: 3px; }
+.tabs { border-color: #e2e2e2; }
+.button.dark { background: #2c3840; }
 
 /*PAGES*/
 
@@ -112,12 +110,13 @@ fieldset {
 .clear-results .fi-x { margin-right: 5px; }
 
 /*PROFILE*/
-.profile .tabs-content .tabs-panel {
+#profile .tabs-content { border: 0; }
+#profile .tabs-content .tabs-panel {
     display: block;
-    padding: 12px;
+    padding: 0;
 }
-.profile li.tabs-title.is-active{ background: #e6e6e6; }
-.profile .logout button {
+#profile li.tabs-title.is-active{ background: #e6e6e6; }
+#profile .logout button {
     display: block;
     padding: 1.25rem 1.5rem;
     line-height: 1;
@@ -126,6 +125,24 @@ fieldset {
     text-decoration: none;
     line-height: inherit;
     cursor: pointer;
+}
+
+#profile .tabs-title > a,
+#profile .tabs-title form button[type="submit"] {
+    color: #2c3840;
+    font-size: 0.9em;
+    width: 100%;
+    text-align: left; }
+#profile table#user-jobs-list th { color: #2c3840; }
+#profile .edit-job-tip { font-weight: normal; border-bottom: 0; }
+#profile .edit-job-tip:hover { cursor: pointer; }
+#profile .side-actions { padding-top: 12px; }
+
+#create-job fieldset,
+#profile fieldset {
+    border: 1px solid #e2e2e2;
+    border-radius: 3px;
+    background: #f9f9f9;
 }
 
     /*sidebar-post-job*/
