@@ -155,9 +155,11 @@ h6 { font-size: 1rem; }
 .hasError { border: 1px solid #d64c4c; }
 .help-block { color: #d64c4c; }
 
+.footer-wrap { background: #2c3840; }
 #SiteFooter {
-	padding: .5em 0;
-	font-size: .8em; }
+	padding: 1em 0;
+	font-size: .8em;
+    color: #fff; }
 
 #SiteFooter p { margin: 0; }
 

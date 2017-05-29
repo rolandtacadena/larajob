@@ -2,12 +2,14 @@
             </div>
         </div>
     </div>
-    <div class="row columns expanded">
-        <div class="large-9 medium-10 medium-centered large-centered columns">
-            <div id="SiteFooter">
-                <p>Roland Tacadena - tacadena.roland@gmail.com</p>
+    <div class="footer-wrap expanded">
+        {{--<div class="large-9 medium-10 medium-centered large-centered columns">--}}
+            <div class="row columns">
+                <div id="SiteFooter">
+                    <p>{{ appName() }} - Roland Tacadena - tacadena.roland@gmail.com</p>
+                </div>
             </div>
-        </div>
+        {{--</div>--}}
     </div>
     <script src="{{ asset('js/vendor/jquery.js')  }}"></script>
     <script src="{{ asset('js/vendor/what-input.js') }}"></script>
@@ -20,7 +22,7 @@
     @yield('additional-scripts')
 
     <!-- swal flash -->
-    @include('flash');
+    @include('flash')
 
 </body>
 </html>
