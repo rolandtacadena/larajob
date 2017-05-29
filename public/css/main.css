@@ -76,6 +76,12 @@ h6 { font-size: 1rem; }
 .label.owned,
 .clear-results .label { background: #e86121; }
 
+fieldset {
+    border: 1px solid #e2e2e2;
+    border-radius: 3px;
+    background: #f9f9f9
+}
+
 /*PAGES*/
 
 /*INDEX*/
@@ -88,6 +94,10 @@ h6 { font-size: 1rem; }
     position: absolute; }
 .job-details {
     padding-left: 101px; }
+
+.search { background: #9c9595; border-radius: 4px; font-size: 1em; }
+.search:hover,
+.search:focus { background: #333; }
 
 /*SHOW JOB*/
 #show-job {}
