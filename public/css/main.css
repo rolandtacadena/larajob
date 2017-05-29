@@ -80,7 +80,7 @@ h6 { font-size: 1rem; }
 
 /*INDEX*/
 .jobs-list .job-item > a { color: #333; display: block; }
-.job { border-bottom: 1px solid #e2e2e2; padding: 5px 0; }
+.job-item { border-bottom: 1px solid #e2e2e2; padding: 5px 0; }
 .company-logo-container {
     padding-right: 0;
     max-width: 73px;

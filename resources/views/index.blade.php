@@ -70,7 +70,7 @@
             	<div>
             		<job v-for="job in jobs" :key="job.id">
 						<a :href="'jobs/' + job.id">
-							<div class="row job columns">
+							<div class="row columns">
 								<div class="company-logo-container float-left">
 									<div class="company-logo">
 										<img src="https://larajobs.com/logos/d552d6ecf816767a1c1961fb2ad99e6d.jpg" alt="">
