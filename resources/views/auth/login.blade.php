@@ -59,6 +59,7 @@
 
                         <div class="medium-12 columns">
                             <button type="submit" class="button expanded">Login</button>
+                            <p>Don't have account yet? <a href="/register">Register</a> new account.</p>
                             <a href="{{ route('password.request') }}">Forgot Your Password?</a>
                         </div>
 

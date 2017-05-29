@@ -81,6 +81,7 @@
 
                         <div class="medium-12 columns">
                             <button type="submit" class="button expanded">Register</button>
+                            <p>Already have yet? Please <a href="/login">login</a>.</p>
                         </div>
 
                     </div>
