@@ -12,7 +12,7 @@
 
 				<div v-if="searching == true" class="loader">Loading...</div>
 
-				<div v-if="hasResults == false && searchHasError == false">
+				<div v-show="hasResults == false && searchHasError == false">
 
 					<!-- display the jobs-list component with the initial jobs -->
 					<jobs-list
@@ -24,7 +24,7 @@
 
 				</div>
 
-				<div v-if="hasResults == true && searchHasError == false">
+				<div v-show="hasResults == true && searchHasError == false">
 
 					<a class="clear-results" @click="clearResults">
 						<span class="label info"><i class="fi-x"></i>clear results</span>
@@ -54,7 +54,7 @@
 		<div class="large-4 columns">
 			@include('partials.sidebar')
 		</div>
-
+		
 	</div>
 
 @endsection

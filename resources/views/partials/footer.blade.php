@@ -3,13 +3,11 @@
         </div>
     </div>
     <div class="footer-wrap expanded">
-        {{--<div class="large-9 medium-10 medium-centered large-centered columns">--}}
-            <div class="row columns">
-                <div id="SiteFooter">
-                    <p>{{ appName() }} - Roland Tacadena - tacadena.roland@gmail.com</p>
-                </div>
+        <div class="row columns">
+            <div id="SiteFooter">
+                <p>{{ appName() }} - Roland Tacadena - tacadena.roland@gmail.com</p>
             </div>
-        {{--</div>--}}
+        </div>
     </div>
     <script src="{{ asset('js/vendor/jquery.js')  }}"></script>
     <script src="{{ asset('js/vendor/what-input.js') }}"></script>
