@@ -153,25 +153,22 @@
                  */
                 getAllJobs() {
                     axios.get('/ajax/jobs')
-                        .then(response => this.jobs = response.data)
-                        .catch(error => console.log(error));
+                        .then((response) => this.jobs = response.data)
+                        .catch((error) => console.log(error));
                 },
 
                 /**
                  * Get the authenticated user.
                  */
                 getAuthUser() {
-                    var _self = this;
                     axios.get('/ajax/get-auth-user')
-                        .then(function (response) {
+                        .then((response) => {
                             if( ! response.data.hasOwnProperty('error')) {
-                                _self.authUser = response.data.authUser;
-                                _self.isLoggedIn = true;
+                                this.authUser = response.data.authUser;
+                                this.isLoggedIn = true;
                             }
-                        })
-                        .catch(function (error) {
-                            console.log('error');
-                        })
+						})
+                        .catch((error) => console.log(error))
                 },
 
                 /**
@@ -179,24 +176,21 @@
                  */
                 searchJob()
 				{
-                    var _self = this;
                     this.searching = true;
                     axios.get('/ajax/search?q=' + this.searchQuery)
-					.then(function (response) {
-					    _self.searching = false;
+					.then((response) => {
+                        this.searching = false;
                         if(response.data.hasOwnProperty('error')) {
-							_self.searchError = response.data.error;
-							_self.searchHasError = true;
-                            _self.hasResults = false;
+                            this.searchError = response.data.error;
+                            this.searchHasError = true;
+                            this.hasResults = false;
                         } else {
-							_self.searchResults = response.data
-							_self.hasResults = true;
-                            _self.searchHasError = false;
+                            this.searchResults = response.data
+                            this.hasResults = true;
+                            this.searchHasError = false;
                         }
 					})
-					.catch(function (error) {
-						console.log(error);
-					});
+					.catch((error) => console.log(error));
 				},
 
                 /**
