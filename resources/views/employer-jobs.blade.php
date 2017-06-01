@@ -50,6 +50,9 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="row columns">
+                        {{ $employer_jobs->links() }}
+                    </div>
                 @else
                     <p>No jobs found. <a href="{{ route('create-job') }}">Create one.</a></p>
                 @endif

@@ -41,7 +41,7 @@ class UsersController extends Controller
      */
     public function employer_jobs()
     {
-        $employer_jobs = request()->user()->jobs()->latest()->get();
+        $employer_jobs = request()->user()->jobs()->latest()->paginate(50);
 
         return view('employer-jobs', compact('employer_jobs'));
     }

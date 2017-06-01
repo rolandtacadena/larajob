@@ -82,6 +82,14 @@ h6 { font-size: 1rem; }
 .tabs { border-color: #e2e2e2; }
 .button.dark { background: #2c3840; }
 
+.pagination li.active {
+    background: #1583cc;
+    padding: 0.1875rem 0.625rem;
+    border-radius: 3px;
+    color: #fff;
+    border: 0;
+}
+
 /*PAGES*/
 
 /*INDEX*/
