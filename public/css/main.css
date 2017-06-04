@@ -90,6 +90,12 @@ h6 { font-size: 1rem; }
     border: 0;
 }
 
+button.is-disabled, .button[disabled] {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: .5;
+}
+
 /*PAGES*/
 
 /*INDEX*/

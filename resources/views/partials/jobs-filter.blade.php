@@ -7,7 +7,12 @@
             </div>
 
             <div class="medium-3 columns">
-                <button type="submit" class="button expanded search">Search</button>
+                <button
+                    type="submit"
+                    class="button expanded search"
+                    :class="searchQuery == '' ? 'is-disabled' : ''">
+                        Search
+                </button>
             </div>
 
         </div>
