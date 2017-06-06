@@ -10,7 +10,7 @@
 
 			<div class="jobs-list">
 
-				<div v-if="searching == true" class="loader">Loading...</div>
+				<div v-cloak v-if="searching == true" class="loader">Loading...</div>
 
 				<div v-show="hasResults == false && searchHasError == false">
 
@@ -26,7 +26,7 @@
 
 				<div v-show="hasResults == true && searchHasError == false">
 
-					<a class="clear-results" @click="clearResults">
+					<a v-cloak class="clear-results" @click="clearResults">
 						<span class="label info"><i class="fi-x"></i>clear results</span>
 					</a>
 
@@ -41,7 +41,7 @@
 				</div>
 
 				<div v-if="searchHasError == true">
-					<p>@{{ searchError }} or
+					<p v-cloak>@{{ searchError }} or
 						<a class="clear-results" @click="clearResults">
 							<span class="label info"><i class="fi-x"></i>clear results</span>
 						</a>

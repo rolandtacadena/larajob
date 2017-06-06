@@ -96,6 +96,8 @@ button.is-disabled, .button[disabled] {
     opacity: .5;
 }
 
+[v-cloak] { display: none; }
+
 /*PAGES*/
 
 /*INDEX*/
