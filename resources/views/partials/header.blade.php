@@ -60,8 +60,7 @@
                     <div class="top-bar-right">
 					    <ul class="dropdown menu" data-dropdown-menu>
 				            <li><a href="{{ route('about') }}">About</a></li>
-                            <li><a href="/login">Login</a></li>
-                            <li><a href="/register">Register</a></li>
+
 
                         @if($isAuthenticated)
 
@@ -78,6 +77,9 @@
                                     </form>
                                 </li>
 
+                            @else
+                                <li><a href="/login">Login</a></li>
+                                <li><a href="/register">Register</a></li>
                             @endif
 
                             <li><a href="{{ route('create-job') }}">Post a Job</a></li>
