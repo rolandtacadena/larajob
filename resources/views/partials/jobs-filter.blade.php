@@ -3,7 +3,7 @@
         <div class="row">
 
             <div class="medium-9 columns">
-                <input type="search" placeholder="Filter jobs" v-model="searchQuery">
+                <input type="search" placeholder="Search jobs" v-model="searchQuery">
             </div>
 
             <div class="medium-3 columns">
