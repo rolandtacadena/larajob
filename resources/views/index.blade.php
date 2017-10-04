@@ -12,43 +12,35 @@
 
 				<div v-cloak v-if="searching == true" class="loader">Loading...</div>
 
-				<div v-show="hasResults == false && searchHasError == false">
+				<template v-if="searching == false">
+					<div v-if="hasResults == false && searchHasError == false">
 
-					<!-- display the jobs-list component with the initial jobs -->
-					<jobs-list
-						:jobs="jobs"
-						:is-logged-in="isLoggedIn"
-						:auth-user="authUser"
-					>
-					</jobs-list>
+						<!-- display the jobs-list component with the initial jobs -->
+						<jobs-list :jobs="jobs"></jobs-list>
 
-				</div>
+					</div>
 
-				<div v-show="hasResults == true && searchHasError == false">
+					<div v-if="hasResults == true && searchHasError == false">
 
-					<a v-cloak class="clear-results" @click="clearResults">
-						<span class="label info"><i class="fi-x"></i>clear results</span>
-					</a>
+						<a v-cloak class="clear-results" @click="clearResults">
+							<span class="label info"><i class="fi-x"></i>clear results</span>
+						</a>
 
-					<!-- display the jobs-list component with the search results -->
-					<jobs-list
-						:jobs="searchResults"
-						:is-logged-in="isLoggedIn"
-						:auth-user="authUser"
-					>
-					</jobs-list>
+						<!-- display the jobs-list component with the search results -->
+						<jobs-list :jobs="searchResults"></jobs-list>
 
-				</div>
+					</div>
 
-				<div v-if="searchHasError == true">
-					<p v-cloak>@{{ searchError }} or
-						<a class="clear-results" @click="clearResults">
+					<div v-if="searchHasError == true">
+						<p v-cloak>@{{ searchError }} or
+							<a class="clear-results" @click="clearResults">
 							<span class="label info">
 								<i class="fi-x"></i>clear results
 							</span>
-						</a>
-					</p>
-				</div>
+							</a>
+						</p>
+					</div>
+				</template>
 
 			</div>
 		</div>

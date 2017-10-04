@@ -21,6 +21,7 @@
                                         value="{{ old('name') }}"
                                         required
                                         autofocus
+                                        v-model="name"
                                     >
                                 </label>
                                 @if ($errors->has('name'))
@@ -40,6 +41,7 @@
                                         name="email"
                                         value="{{ old('email') }}"
                                         required
+                                        v-model="email"
                                     >
                                 </label>
                                 @if ($errors->has('email'))
@@ -58,6 +60,7 @@
                                         type="password"
                                         name="password"
                                         required
+                                        v-model="password"
                                     >
                                 </label>
                                 @if ($errors->has('password'))
@@ -75,12 +78,19 @@
                                     type="password"
                                     name="password_confirmation"
                                     required
+                                    v-model="password_confirmation"
                                 >
                             </label>
                         </div>
 
                         <div class="medium-12 columns">
-                            <button type="submit" class="button expanded">Register</button>
+                            <button
+                                v-show="name && email && password && password_confirmation"
+                                type="submit"
+                                class="button expanded"
+                            >
+                                Register
+                            </button>
                             <p>Already have yet? Please <a href="/login">login</a>.</p>
                         </div>
 
@@ -90,4 +100,19 @@
         </div>
     </div>
 
+@endsection
+
+@section('additional-scripts')
+    <script>
+        new Vue({
+            el: '#register-page',
+
+            data: {
+                name: '',
+                email: '',
+                password: '',
+                password_confirmation: '',
+            }
+        })
+    </script>
 @endsection

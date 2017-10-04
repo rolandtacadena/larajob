@@ -22,6 +22,7 @@
                                         placeholder="email"
                                         required
                                         autofocus
+                                        v-model="email"
                                     >
                                 </label>
                                 @if ($errors->has('email'))
@@ -41,6 +42,7 @@
                                         name="password"
                                         placeholder="password"
                                         required
+                                        v-model="password"
                                     >
                                 </label>
                                 @if ($errors->has('password'))
@@ -58,7 +60,13 @@
                         </div>
 
                         <div class="medium-12 columns">
-                            <button type="submit" class="button expanded">Login</button>
+                            <button
+                                v-show="email && password"
+                                type="submit"
+                                class="button expanded"
+                            >
+                                Login
+                            </button>
                             <p>Don't have account yet? <a href="/register">Register</a> new account.</p>
                             <a href="{{ route('password.request') }}">Forgot Your Password?</a>
                         </div>
@@ -68,4 +76,14 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('additional-scripts')
+    <script>
+        new Vue({
+            el: '#login-page',
+
+            data: { email: '', password: '' }
+        })
+    </script>
 @endsection
