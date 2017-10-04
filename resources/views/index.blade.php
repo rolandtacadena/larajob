@@ -14,21 +14,16 @@
 
 				<template v-if="searching == false">
 					<div v-if="hasResults == false && searchHasError == false">
-
 						<!-- display the jobs-list component with the initial jobs -->
 						<jobs-list :jobs="jobs"></jobs-list>
-
 					</div>
 
 					<div v-if="hasResults == true && searchHasError == false">
-
 						<a v-cloak class="clear-results" @click="clearResults">
 							<span class="label info"><i class="fi-x"></i>clear results</span>
 						</a>
-
 						<!-- display the jobs-list component with the search results -->
 						<jobs-list :jobs="searchResults"></jobs-list>
-
 					</div>
 
 					<div v-if="searchHasError == true">
