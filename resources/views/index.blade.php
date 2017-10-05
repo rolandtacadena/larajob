@@ -15,7 +15,7 @@
 				<template v-if="searching == false">
 					<div v-if="hasResults == false && searchHasError == false">
 						<!-- display the jobs-list component with the initial jobs -->
-						<jobs-list :jobs="jobs"></jobs-list>
+						<jobs-list :auth-user="authUser" :jobs="jobs"></jobs-list>
 					</div>
 
 					<div v-if="hasResults == true && searchHasError == false">
@@ -23,7 +23,7 @@
 							<span class="label info"><i class="fi-x"></i>clear results</span>
 						</a>
 						<!-- display the jobs-list component with the search results -->
-						<jobs-list :jobs="searchResults"></jobs-list>
+						<jobs-list :auth-user="authUser" :jobs="searchResults"></jobs-list>
 					</div>
 
 					<div v-if="searchHasError == true">
@@ -56,7 +56,7 @@
 		    /**
              * <job-list> component props
              */
-			props: ['jobs', 'authUser', 'isLoggedIn'],
+			props: ['jobs', 'authUser'],
 
 			/**
              * Templete for <job-list>
@@ -66,12 +66,19 @@
             		<job
             			v-for="job in jobs"
             			:job="job"
+            			:authUser="authUser"
             			:isLoggedIn="isLoggedIn"
             			:key="job.id"
 					>
 					</job>
 				</div>
-			`
+			`,
+
+			computed: {
+                isLoggedIn() {
+                    return Object.keys(this.authUser).length == 0 ? false : true
+				}
+			}
 		});
 
 		Vue.component('job', {
@@ -79,7 +86,7 @@
 		    /**
 			 * <job> component props
 			 */
-		    props: ['job', 'isLoggedIn'],
+		    props: ['job', 'isLoggedIn', 'authUser'],
 
 			/**
 			 * Templete for <job>
