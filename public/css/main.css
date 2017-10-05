@@ -108,8 +108,8 @@ button.is-disabled, .button[disabled] {
     max-width: 73px;
     max-height: 73px;
     position: absolute; }
-.job-details {
-    padding-left: 101px; }
+/*.job-details {*/
+    /*padding-left: 101px; }*/
 
 .search { background: #9c9595; border-radius: 4px; font-size: 1em; }
 .search:hover,
