@@ -106,7 +106,7 @@
 									</div>
 									<div class="job-details small-12 columns">
 										<div class="row">
-											<div class="small-3 columns">
+											<div class="small-2 columns">
 												<div class="row">
 													<div class="small-12 columns" v-if="is_logged_in == true">
 														<span
@@ -123,19 +123,19 @@
 													</div>
 												</div>
 											</div>
-											<div class="small-9 columns">
+											<div class="small-10 columns">
 												<div class="row">
 													<div class="small-7 columns">
-														<p><span class="job-title">@{{ job.title }}</span></p>
+														<h5 class="job-title"><b>@{{ job.title }}</b></h5>
 														<p>
-															<b><span class="company_name">@{{ job.user.company_name }}</span></b> -
+															<span class="company_name">@{{ job.user.company_name }}</span>
 															<span class="company_tagline">@{{ job.user.company_tagline }}</span>
 														</p>
 													</div>
 													<div class="small-5 columns text-right">
 														<div class="row">
 															<div class="small-12">
-																<span class="job-type">@{{ job.type.name }}</span>
+																<span class="job-type"><em>@{{ job.type.name }}</em></span>
 															</div>
 															<div class="small-12">
 																<span class="location">@{{ job.location }}</span>

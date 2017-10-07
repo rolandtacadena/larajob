@@ -114,6 +114,7 @@ button.is-disabled, .button[disabled] {
 .search { background: #9c9595; border-radius: 4px; font-size: 1em; }
 .search:hover,
 .search:focus { background: #333; }
+.job-title { font-size: 1.2em; }
 
 /*SHOW JOB*/
 #show-job {}
