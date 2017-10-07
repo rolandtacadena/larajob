@@ -6,7 +6,9 @@
 
 		<div class="large-8 columns">
 
-			@include('partials.jobs-filter')
+			{{--@include('partials.jobs-filter')--}}
+
+			<search-bar @searchjob="search_job"></search-bar>
 
 			<div class="jobs-list">
 
@@ -19,7 +21,7 @@
 					</div>
 
 					<div v-if="hasResults == true && searchHasError == false">
-						<a v-cloak class="clear-results" @click="clearResults">
+						<a v-cloak class="clear-results" @click="clear_results">
 							<span class="label info"><i class="fi-x"></i>clear results</span>
 						</a>
 						<!-- display the jobs-list component with the search results -->
@@ -28,7 +30,7 @@
 
 					<div v-if="searchHasError == true">
 						<p v-cloak>@{{ searchError }} or
-							<a class="clear-results" @click="clearResults">
+							<a class="clear-results" @click="clear_results">
 							<span class="label info">
 								<i class="fi-x"></i>clear results
 							</span>
@@ -67,7 +69,7 @@
             			v-for="job in jobs"
             			:job="job"
             			:authUser="authUser"
-            			:isLoggedIn="isLoggedIn"
+            			:is_logged_in="is_logged_in"
             			:key="job.id"
 					>
 					</job>
@@ -75,7 +77,10 @@
 			`,
 
 			computed: {
-                isLoggedIn() {
+                /**
+				 * Check if there is logged in user.
+				 */
+                is_logged_in() {
                     return Object.keys(this.authUser).length == 0 ? false : true
 				}
 			}
@@ -86,7 +91,7 @@
 		    /**
 			 * <job> component props
 			 */
-		    props: ['job', 'isLoggedIn', 'authUser'],
+		    props: ['job', 'is_logged_in', 'authUser'],
 
 			/**
 			 * Templete for <job>
@@ -103,7 +108,7 @@
 										<div class="row">
 											<div class="small-3 columns">
 												<div class="row">
-													<div class="small-12 columns" v-if="isLoggedIn == true">
+													<div class="small-12 columns" v-if="is_logged_in == true">
 														<span
 															v-if="authUser.id == job.user.id"
 															class="label owned"
@@ -147,6 +152,52 @@
 					`,
         });
 
+		Vue.component('search-bar', {
+
+		    /**
+			 * Templete for <search-bar>
+			 */
+		    template: `
+		    	<div class="jobs-filter">
+					<form @submit.prevent="send_search_query">
+						<div class="row">
+
+							<div class="medium-9 columns">
+								<input type="search" placeholder="Search jobs" v-model="searchQuery">
+							</div>
+
+							<div class="medium-3 columns">
+								<button
+									type="submit"
+									class="button expanded search"
+									:class="searchQuery == '' ? 'is-disabled' : ''">
+										Search
+								</button>
+							</div>
+
+						</div>
+					</form>
+				</div>
+		    `,
+
+			data() {
+		        return {
+		            searchQuery: ''
+                }
+			},
+
+			methods: {
+
+		        /**
+				 * Send the search query to parent vue instance.
+				 */
+                send_search_query() {
+                    this.searching = false
+                    this.$emit('searchjob', this.searchQuery)
+				}
+			}
+		})
+
 		var jobs = new Vue({
 
 			el: '#index',
@@ -154,21 +205,20 @@
 			data: {
                 jobs: [],
                 searchResults: [],
-                isLoggedIn: false,
+                is_logged_in: false,
                 hasResults: false,
                 searchHasError: false,
                 authUser: {},
                 searchError: '',
-                searchQuery: '',
-                searching: false
+				searching: false
             },
 
 			/**
 			 * Once the vue instance is created.
 			 */
-			created(){
-                this.getAllJobs();
-                this.getAuthUser();
+			created() {
+                this.get_all_jobs();
+                this.get_auth_user();
 			},
 
 			methods: {
@@ -176,7 +226,7 @@
                 /**
                  * Get all jobs via ajax.
                  */
-                getAllJobs() {
+                get_all_jobs() {
                     axios.get('/ajax/jobs')
                         .then((response) => this.jobs = response.data)
                         .catch((error) => console.log(error));
@@ -185,12 +235,12 @@
                 /**
                  * Get the authenticated user.
                  */
-                getAuthUser() {
+                get_auth_user() {
                     axios.get('/ajax/get-auth-user')
                         .then((response) => {
                             if( ! response.data.hasOwnProperty('error')) {
                                 this.authUser = response.data.authUser;
-                                this.isLoggedIn = true;
+                                this.is_logged_in = true;
                             }
 						})
                         .catch((error) => console.log(error))
@@ -199,12 +249,16 @@
                 /**
 				 * Get the matching jobs via ajax through the entered query.
                  */
-                searchJob()
-				{
+                search_job(searchQuery) {
+
                     this.searching = true;
-                    axios.get('/ajax/search?q=' + this.searchQuery)
+
+                    axios.get('/ajax/search?q=' + searchQuery)
+
 					.then((response) => {
+
                         this.searching = false;
+
                         if(response.data.hasOwnProperty('error')) {
                             this.searchError = response.data.error;
                             this.searchHasError = true;
@@ -221,11 +275,9 @@
                 /**
 				 * Reset search
                  */
-                clearResults()
-				{
+                clear_results() {
                     this.searchHasError = false,
                     this.searchError = '',
-                    this.searchQuery = '',
                     this.hasResults = false,
                     this.searchResults = []
 				}
