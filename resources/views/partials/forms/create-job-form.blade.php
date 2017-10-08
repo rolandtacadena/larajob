@@ -116,25 +116,23 @@
         </div>
     </fieldset>
 
-    <div class="row">
-        <div class="small-12 columns">
-            <label>* Location
-                <input
-                    type="text"
-                    name="location"
-                    value="{{ old('location') }}"
-                    placeholder="location"
-                    class="{{ $errors->has('location') ? ' hasError' : ''}}"
-                    required
-                >
-            </label>
-            @if ($errors->has('location'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('location') }}</strong>
-                </span>
-            @endif
-        </div>
-    </div>
+    <fieldset class="fieldset">
+        <label>* Location
+            <textarea
+                name="location"
+                placeholder="Location"
+                cols="20"
+                rows="10"
+                class="{{ $errors->has('location') ? ' hasError' : ''}}"
+                required
+            >{{ old('location') }}</textarea>
+        </label>
+        @if ($errors->has('location'))
+            <span class="help-block">
+                <strong>{{ $errors->first('location') }}</strong>
+            </span>
+        @endif
+    </fieldset>
 
     <div class="row">
         <div class="small-12 columns">
