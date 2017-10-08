@@ -1,4 +1,4 @@
-<form method="POST" action="{{ route('employer-update-profile', $authUser) }}">
+<form method="POST" action="{{ route('employer-update-profile', $authUser) }}" enctype="multipart/form-data">
 
     {{ csrf_field() }}
 
@@ -84,6 +84,11 @@
                         value="{{ $authUser->company_logo }}"
                     >
                 </label>
+                @if ($errors->has('company_logo'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('company_logo') }}</strong>
+                    </span>
+                @endif
             </div>
 
         </div>

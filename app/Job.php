@@ -56,6 +56,7 @@ class Job extends Model
      * Sync categories to Job based on form data.
      *
      * @param $body
+     * @return array
      */
     public function syncCategories($body)
     {

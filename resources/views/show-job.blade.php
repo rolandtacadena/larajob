@@ -8,7 +8,7 @@
             <div class="row">
 
                 <div class="large-4 columns">
-                    <img src="https://larajobs.com/logos/d552d6ecf816767a1c1961fb2ad99e6d.jpg" alt="">
+                    <img src="{{ asset('images/company_logos/' . $job->user->company_logo) }}" alt="">
                 </div>
 
                 <div class="large-8 columns">

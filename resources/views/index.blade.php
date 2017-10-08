@@ -4,11 +4,11 @@
 	
 	<div id="index" class="page-content">
 
-		<div class="large-8 columns">
+		<div class="large-9 columns">
 
 			{{--@include('partials.jobs-filter')--}}
 
-			<search-bar @searchjob="search_job"></search-bar>
+			<search-bar @searchjob="search"></search-bar>
 
 			<div class="jobs-list">
 
@@ -21,7 +21,7 @@
 					</div>
 
 					<div v-if="hasResults == true && searchHasError == false">
-						<a v-cloak class="clear-results" @click="clear_results">
+						<a v-cloak class="clear-results" @click="clearResults">
 							<span class="label info"><i class="fi-x"></i>clear results</span>
 						</a>
 						<!-- display the jobs-list component with the search results -->
@@ -30,7 +30,7 @@
 
 					<div v-if="searchHasError == true">
 						<p v-cloak>@{{ searchError }} or
-							<a class="clear-results" @click="clear_results">
+							<a class="clear-results" @click="clearResults">
 							<span class="label info">
 								<i class="fi-x"></i>clear results
 							</span>
@@ -42,7 +42,7 @@
 			</div>
 		</div>
 
-		<div class="large-4 columns">
+		<div class="large-3 columns">
 			@include('partials.sidebar')
 		</div>
 		
@@ -69,7 +69,7 @@
             			v-for="job in jobs"
             			:job="job"
             			:authUser="authUser"
-            			:is_logged_in="is_logged_in"
+            			:isLoggedIn="isLoggedIn"
             			:key="job.id"
 					>
 					</job>
@@ -80,7 +80,7 @@
                 /**
 				 * Check if there is logged in user.
 				 */
-                is_logged_in() {
+                isLoggedIn() {
                     return Object.keys(this.authUser).length == 0 ? false : true
 				}
 			}
@@ -91,65 +91,66 @@
 		    /**
 			 * <job> component props
 			 */
-		    props: ['job', 'is_logged_in', 'authUser'],
+		    props: ['job', 'isLoggedIn', 'authUser'],
 
 			/**
 			 * Templete for <job>
 			 */
-		    template: `<div class="job-item">
-							<a :href="'jobs/' + job.id">
-								<div class="row columns">
-									<div class="company-logo-container float-left">
-										<div class="company-logo">
-											<img src="https://larajobs.com/logos/d552d6ecf816767a1c1961fb2ad99e6d.jpg" alt="">
+		    template: `
+				<div class="job-item">
+					<a :href="'jobs/' + job.id">
+						<div class="row columns">
+							<div class="company-logo-container float-left">
+								<div class="company-logo">
+									<img :src="'/images/company_logos/' + job.user.company_logo" alt="">
+								</div>
+							</div>
+							<div class="job-details small-12 columns">
+								<div class="row">
+									<div class="small-2 columns">
+										<div class="row">
+											<div class="small-12 columns" v-if="isLoggedIn == true">
+												<span
+													v-if="authUser.id == job.user.id"
+													class="label owned"
+												>
+													you owned this job
+												</span>
+											</div>
+											<div class="small-12 columns">
+												<span class="company_web_url">
+													@{{ job.user.company_web_url }}
+												</span>
+											</div>
 										</div>
 									</div>
-									<div class="job-details small-12 columns">
+									<div class="small-10 columns">
 										<div class="row">
-											<div class="small-2 columns">
-												<div class="row">
-													<div class="small-12 columns" v-if="is_logged_in == true">
-														<span
-															v-if="authUser.id == job.user.id"
-															class="label owned"
-														>
-															you owned this job
-														</span>
-													</div>
-													<div class="small-12 columns">
-														<span class="company_web_url">
-															@{{ job.user.company_web_url }}
-														</span>
-													</div>
-												</div>
+											<div class="small-7 columns">
+												<h5 class="job-title"><b>@{{ job.title }}</b></h5>
+												<p>
+													<span class="company_name">@{{ job.user.company_name }}</span>
+													<span class="company_tagline">@{{ job.user.company_tagline }}</span>
+												</p>
 											</div>
-											<div class="small-10 columns">
+											<div class="small-5 columns text-right">
 												<div class="row">
-													<div class="small-7 columns">
-														<h5 class="job-title"><b>@{{ job.title }}</b></h5>
-														<p>
-															<span class="company_name">@{{ job.user.company_name }}</span>
-															<span class="company_tagline">@{{ job.user.company_tagline }}</span>
-														</p>
+													<div class="small-12">
+														<span class="job-type"><em>@{{ job.type.name }}</em></span>
 													</div>
-													<div class="small-5 columns text-right">
-														<div class="row">
-															<div class="small-12">
-																<span class="job-type"><em>@{{ job.type.name }}</em></span>
-															</div>
-															<div class="small-12">
-																<span class="location">@{{ job.location }}</span>
-															</div>
-														</div>
+													<div class="small-12">
+														<span class="location">@{{ job.location }}</span>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-							</a>
+							</div>
 						</div>
-					`,
+					</a>
+				</div>
+			`,
         });
 
 		Vue.component('search-bar', {
@@ -159,7 +160,7 @@
 			 */
 		    template: `
 		    	<div class="jobs-filter">
-					<form @submit.prevent="send_search_query">
+					<form @submit.prevent="sendSearchQuery">
 						<div class="row">
 
 							<div class="medium-9 columns">
@@ -191,7 +192,7 @@
 		        /**
 				 * Send the search query to parent vue instance.
 				 */
-                send_search_query() {
+                sendSearchQuery() {
                     this.searching = false
                     this.$emit('searchjob', this.searchQuery)
 				}
@@ -205,7 +206,7 @@
 			data: {
                 jobs: [],
                 searchResults: [],
-                is_logged_in: false,
+                isLoggedIn: false,
                 hasResults: false,
                 searchHasError: false,
                 authUser: {},
@@ -217,8 +218,8 @@
 			 * Once the vue instance is created.
 			 */
 			created() {
-                this.get_all_jobs();
-                this.get_auth_user();
+                this.getAllJobs();
+                this.getAuthUser();
 			},
 
 			methods: {
@@ -226,7 +227,7 @@
                 /**
                  * Get all jobs via ajax.
                  */
-                get_all_jobs() {
+                getAllJobs() {
                     axios.get('/ajax/jobs')
                         .then((response) => this.jobs = response.data)
                         .catch((error) => console.log(error));
@@ -235,12 +236,12 @@
                 /**
                  * Get the authenticated user.
                  */
-                get_auth_user() {
+                getAuthUser() {
                     axios.get('/ajax/get-auth-user')
                         .then((response) => {
                             if( ! response.data.hasOwnProperty('error')) {
                                 this.authUser = response.data.authUser;
-                                this.is_logged_in = true;
+                                this.isLoggedIn = true;
                             }
 						})
                         .catch((error) => console.log(error))
@@ -249,7 +250,7 @@
                 /**
 				 * Get the matching jobs via ajax through the entered query.
                  */
-                search_job(searchQuery) {
+                search(searchQuery) {
 
                     this.searching = true;
 
@@ -275,7 +276,7 @@
                 /**
 				 * Reset search
                  */
-                clear_results() {
+                clearResults() {
                     this.searchHasError = false,
                     this.searchError = '',
                     this.hasResults = false,

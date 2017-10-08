@@ -20,7 +20,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'company_name' => $faker->name,
         'company_tagline' => $faker->sentence(5),
         'company_web_url' => 'roland.com',
-        'company_logo' => $faker->name,
+        'company_logo' => '1.png',
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10)
     ];
