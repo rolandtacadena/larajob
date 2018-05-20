@@ -1,0 +1,1 @@
+https://scotch.io/tutorials/build-search-functionality-with-laravel-scout-and-vue-js - algolia and vue integration
